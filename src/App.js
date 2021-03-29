@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from "./pages/Home";
+
+//styling
+import GlobalStyles from "./components/GlobalStyles";
+import styled from "styled-components";
+//Router
+import { Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <GlobalStyles></GlobalStyles>
+      <Route exact path={"/"}>
+        <StyledApp>
+          <Home />
+        </StyledApp>
+      </Route>
     </div>
   );
 }
+
+const StyledApp = styled.div`
+  max-width: 1800px;
+  margin: 0 auto;
+`;
 
 export default App;

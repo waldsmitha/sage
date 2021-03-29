@@ -1,0 +1,7 @@
+{
+  "services": [
+    { "img": "tea2", "text": "Therapeutic Modalities & Services" },
+    { "img": "evaluations", "text": "Evaluations" },
+    { "img": "ill", "text": "Common Conditions Treated" }
+  ]
+}

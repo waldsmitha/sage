@@ -86,6 +86,15 @@ const StyledUl = styled(motion.ul)`
     text-transform: uppercase;
     cursor: pointer;
   }
+
+  @media screen and (max-width: 1150px) {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background: gray;
+  }
 `;
 
 export default Nav;

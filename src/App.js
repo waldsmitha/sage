@@ -22,6 +22,7 @@ function App() {
 const StyledApp = styled.div`
   max-width: 1800px;
   margin: 0 auto;
+  overflow-x: hidden;
 `;
 
 export default App;

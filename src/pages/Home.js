@@ -13,16 +13,19 @@ import tea from "../img/tea.jpg";
 //styling
 import styled from "styled-components";
 import { motion } from "framer-motion";
+//animations
+import { revealHeader } from "../animations";
 
 const Home = () => {
   return (
     <div>
-      <Header />
+      <StyledHeader>
+        <Header />
+      </StyledHeader>
       <LandingPage />
       <Services />
       <StyledImg src={table} alt="" />
       <Articles />
-      {/* <StyledImg src={tea} alt="" /> */}
       <About />
       <Contact />
     </div>
@@ -36,4 +39,5 @@ const StyledImg = styled(motion.img)`
   display: block;
 `;
 
+const StyledHeader = styled(motion.div)``;
 export default Home;

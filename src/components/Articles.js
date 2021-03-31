@@ -7,20 +7,40 @@ import ill from "../img/ill.jpg";
 //styling
 import styled from "styled-components";
 import { motion } from "framer-motion";
+//animations
+import { useScroll } from "./useScroll";
+import {
+  revealServices,
+  revealService,
+  revealArticles,
+  revealArticle,
+} from "../animations";
 
 const Articles = () => {
+  const [element, controls] = useScroll();
   return (
     <StyledArticles>
       <h1>Helpful Articles</h1>
-      <StyledArticleGallery>
-        <Article />
-        <Article />
-        <Article />
+      <StyledArticleGallery
+        variants={revealArticles}
+        animate={controls}
+        ref={element}
+        initial="hidden"
+      >
+        <StyledArticle variants={revealArticle}>
+          <Article />
+        </StyledArticle>
+        <StyledArticle variants={revealArticle}>
+          <Article />
+        </StyledArticle>
+        <StyledArticle variants={revealArticle}>
+          <Article />
+        </StyledArticle>
       </StyledArticleGallery>
     </StyledArticles>
   );
 };
-
+const StyledArticle = styled(motion.div)``;
 const StyledArticles = styled(motion.div)`
   min-height: 90vh;
   background: white;

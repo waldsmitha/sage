@@ -10,11 +10,14 @@ import ill from "../img/ill.jpg";
 //styling
 import styled from "styled-components";
 import { motion } from "framer-motion";
-
 //data
 import data from "../data.json";
+//animations
+import { useScroll } from "./useScroll";
+import { reveal, revealServices, revealService } from "../animations";
 
 const Services = () => {
+  const [element, controls] = useScroll();
   const services = [
     { img: tea2, text: "Therapeutic Modalities & Services" },
     { img: evaluations, text: "Evaluations" },
@@ -22,11 +25,23 @@ const Services = () => {
   ];
 
   return (
-    <StyledContainer>
+    <StyledContainer
+      variants={reveal}
+      animate={controls}
+      ref={element}
+      initial="hidden"
+    >
       <h1>How we help you</h1>
-      <StyledServices>
+      <StyledServices
+        variants={revealServices}
+        animate={controls}
+        ref={element}
+        initial="hidden"
+      >
         {services.map((item) => (
-          <ServiceBox key={item.text} img={item.img} text={item.text} />
+          <motion.div variants={revealService}>
+            <ServiceBox key={item.text} img={item.img} text={item.text} />
+          </motion.div>
         ))}
       </StyledServices>
     </StyledContainer>
@@ -35,7 +50,7 @@ const Services = () => {
 
 const StyledContainer = styled(motion.div)`
   min-height: 100vh;
-  /* background: blue; */
+  background: blue;
 
   h1 {
     padding: 10rem 0 0 5rem;
@@ -62,5 +77,7 @@ const StyledServices = styled(motion.div)`
   min-height: 90vh;
   width: 100%;
 `;
+
+const StyledTest = styled(motion.div)``;
 
 export default Services;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //components
 import LandingPage from "../components/LandingPage";
@@ -7,6 +7,7 @@ import Articles from "../components/Articles";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Header from "../components/Header";
+import NavMobile from "../components/NavMobile";
 //imgs
 import table from "../img/table.jpg";
 import tea from "../img/tea.jpg";
@@ -14,21 +15,28 @@ import tea from "../img/tea.jpg";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 //animations
-import { revealHeader } from "../animations";
+import { revealNavMobile } from "../animations";
 
 const Home = () => {
+  const [navActive, setNavActive] = useState(false);
+
   return (
-    <div>
-      <StyledHeader>
-        <Header />
-      </StyledHeader>
-      <LandingPage />
-      <Services />
-      <StyledImg src={table} alt="" />
-      <Articles />
-      <About />
-      <Contact />
-    </div>
+    <StyledContainer>
+      <NavMobile />
+      <Header navActive={navActive} setNavActive={setNavActive} />
+      <StyledHome
+        variants={revealNavMobile}
+        initial="hidden"
+        animate={navActive ? "show" : "hidden"}
+      >
+        <LandingPage />
+        <Services />
+        <StyledImg src={table} alt="" />
+        <Articles />
+        <About />
+        <Contact />
+      </StyledHome>
+    </StyledContainer>
   );
 };
 
@@ -39,5 +47,10 @@ const StyledImg = styled(motion.img)`
   display: block;
 `;
 
-const StyledHeader = styled(motion.div)``;
+const StyledContainer = styled(motion.div)`
+  overflow: hidden;
+`;
+
+const StyledHome = styled(motion.div)``;
+
 export default Home;

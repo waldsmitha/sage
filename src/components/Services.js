@@ -50,7 +50,8 @@ const Services = () => {
 
 const StyledContainer = styled(motion.div)`
   min-height: 100vh;
-  background: blue;
+  /* background: blue; */
+  background: white;
 
   h1 {
     padding: 10rem 0 0 5rem;

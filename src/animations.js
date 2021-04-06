@@ -23,6 +23,24 @@ export const reveal = {
   },
 };
 
+export const scaleDown = {
+  show: {
+    height: "80vh",
+    width: "95vw",
+    top: "10%",
+    left: "2.5%",
+    transition: {
+      duration: 1,
+      delay: 1,
+      when: "beforeChildren",
+    },
+  },
+  hidden: {
+    height: "100vh",
+    width: "100vw",
+  },
+};
+
 export const revealRight = {
   show: {
     x: 0,
@@ -35,6 +53,21 @@ export const revealRight = {
   hidden: {
     opacity: 0,
     x: "-10%",
+  },
+};
+
+export const revealNavMobile = {
+  show: {
+    x: "28vw",
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    x: "0vw",
+    transition: {
+      duration: 1,
+    },
   },
 };
 

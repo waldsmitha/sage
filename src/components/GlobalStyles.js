@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
-let h1 = `calc(4rem + 1vw)`;
-let h2 = `calc(3rem + 1vw)`;
-let h3 = `calc(2.5rem + 1vw)`;
+let h1 = `calc(4rem + .5vw)`;
+let h2 = `calc(2.5rem + .5vw)`;
+let h3 = `calc(2rem + .5vw)`;
 let p = `calc(1rem + 1vw)`;
 
 const GlobalStyles = createGlobalStyle`
@@ -33,7 +33,6 @@ p, li {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    /* background: #dedede; */
     background: #ffffff;
 }
 

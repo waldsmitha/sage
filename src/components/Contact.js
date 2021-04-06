@@ -39,6 +39,7 @@ const StyledContact = styled(motion.div)`
   padding: 5rem;
   padding-top: 10rem;
   width: 100vw;
+  background: white;
 
   form {
     flex: 1;

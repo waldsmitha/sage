@@ -1,8 +1,11 @@
+import React from "react";
+
 import Home from "./pages/Home";
 
 //styling
 import GlobalStyles from "./components/GlobalStyles";
 import styled from "styled-components";
+
 //Router
 import { Route } from "react-router-dom";
 
@@ -23,6 +26,7 @@ const StyledApp = styled.div`
   max-width: 1800px;
   margin: 0 auto;
   overflow-x: hidden;
+  /* position: relative; */
 `;
 
 export default App;

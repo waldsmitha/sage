@@ -6,18 +6,17 @@ import sage from "../img/sage.jpg";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 //animations
-import { revealRight } from "../animations";
+import { scaleDown, reveal } from "../animations";
 
 const LandingPage = () => {
   return (
     <StyledLanding>
-      <StyledBackground></StyledBackground>
-      <StyledContainer variants={revealRight} animate="show" initial="hidden">
+      <StyledContainer variants={scaleDown} initial="hidden" animate="show">
         <img src={sage} alt="" />
-        <StyledCta variants={revealRight} animate="show" initial="hidden">
+        <StyledCta variants={reveal}>
           <h1>Call to Action</h1>
           <span></span>
-          <h3>This is some text about the CTA</h3>
+          <h2>This is some text about the CTA</h2>
         </StyledCta>
       </StyledContainer>
     </StyledLanding>
@@ -25,62 +24,65 @@ const LandingPage = () => {
 };
 
 const StyledLanding = styled(motion.div)`
+  min-height: 100vh;
+  padding-bottom: 2.5vw;
+  background: white;
   position: relative;
-`;
-
-const StyledBackground = styled(motion.div)`
-  position: absolute;
 `;
 
 const StyledContainer = styled(motion.div)`
-  height: 90vh;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   background: #c0c0cf;
-  width: fit-content;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 1rem;
+  z-index: 0;
 
   img {
-    padding: 2rem 0 10rem 100px;
-    /* max-width: 50%; */
     height: 100%;
+    width: 100%;
     object-fit: cover;
-  }
-
-  @media screen and (max-width: 900px) {
-    width: 100vw;
-    overflow-x: hidden;
-    img {
-      display: none;
-    }
+    object-position: center;
+    border-radius: 1rem;
+    transform: scale(1);
   }
 `;
 
 const StyledCta = styled(motion.div)`
   position: absolute;
-  background: white;
-  top: 12%;
-  left: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
   min-height: 60vh;
+  max-width: 50vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 5rem;
-  width: 100%;
-  max-width: 50vw;
   cursor: pointer;
-  box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
+
+  h2 {
+    font-weight: bold;
+    font-style: italic;
+    padding-top: 2rem;
+  }
 
   h1 {
     transition: 0.5s;
-    /* background: blue; */
     position: relative;
     width: fit-content;
     margin: 0 auto;
     padding-bottom: 2rem;
+    font-size: 10rem;
+    font-weight: bold;
+    font-style: italic;
 
     &:hover {
-      color: #638963;
-      scale: 1.05;
+      transform: scale(1.05);
     }
 
     &::after {
@@ -90,19 +92,12 @@ const StyledCta = styled(motion.div)`
       position: absolute;
       bottom: 0;
       left: 0;
-      background: black;
-      transition: 0.5s;
+      background: white;
+      transition: 0.75s;
     }
     &:hover::after {
       width: 100%;
     }
-  }
-
-  span {
-    background: black;
-    width: 80%;
-    height: 2px;
-    margin: 0 auto;
   }
 `;
 

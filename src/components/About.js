@@ -65,6 +65,7 @@ const About = () => {
 const StyledAbout = styled(motion.div)`
   display: flex;
   min-height: 80vh;
+  background: white;
 `;
 const StyledImages = styled(motion.div)`
   position: relative;

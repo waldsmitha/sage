@@ -22,6 +22,10 @@ const StyledBrand = styled(motion.div)`
   display: flex;
   color: #638963;
 `;
-const StyledName = styled(motion.div)``;
-
+const StyledName = styled(motion.div)`
+  h1,
+  h2 {
+    font-weight: 400;
+  }
+`;
 export default Brand;

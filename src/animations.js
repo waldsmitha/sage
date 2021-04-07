@@ -11,7 +11,7 @@ export const revealDown = {
     y: "-10%",
   },
 };
-export const reveal = {
+export const opacity = {
   show: {
     opacity: 1,
     transition: {
@@ -25,9 +25,9 @@ export const reveal = {
 
 export const scaleDown = {
   show: {
-    height: "80vh",
+    height: "85vh",
     width: "95vw",
-    top: "10%",
+    top: "10rem",
     left: "2.5%",
     transition: {
       duration: 1,
@@ -58,13 +58,62 @@ export const revealRight = {
 
 export const revealNavMobile = {
   show: {
-    x: "28vw",
+    x: "40vw",
     transition: {
       duration: 1,
     },
   },
   hidden: {
     x: "0vw",
+    transition: {
+      duration: 1,
+    },
+  },
+};
+
+export const toggleTiltRight = {
+  show: {
+    rotate: 45,
+    y: ".8rem",
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    y: 0,
+    rotate: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+};
+export const toggleTiltLeft = {
+  show: {
+    y: "-.8rem",
+    rotate: -45,
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    y: 0,
+    rotate: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+};
+export const ToggleOpacityRight = {
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    x: "100%",
+    opacity: 0,
     transition: {
       duration: 1,
     },

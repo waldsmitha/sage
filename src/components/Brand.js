@@ -21,6 +21,7 @@ const Brand = () => {
 const StyledBrand = styled(motion.div)`
   display: flex;
   color: #638963;
+  align-items: center;
 `;
 const StyledName = styled(motion.div)`
   h1,

@@ -1,25 +1,18 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 //components
 import Article from "./Article";
-//imgs
-import ill from "../img/ill.jpg";
 //styling
 import styled from "styled-components";
 import { motion } from "framer-motion";
 //animations
 import { useScroll } from "./useScroll";
-import {
-  revealServices,
-  revealService,
-  revealArticles,
-  revealArticle,
-} from "../animations";
+import { revealArticles, revealArticle } from "../animations";
 
-const Articles = () => {
+const Articles = forwardRef(({}, ref) => {
   const [element, controls] = useScroll();
   return (
-    <StyledArticles>
+    <StyledArticles ref={ref}>
       <h1>Helpful Articles</h1>
       <StyledArticleGallery
         variants={revealArticles}
@@ -39,7 +32,7 @@ const Articles = () => {
       </StyledArticleGallery>
     </StyledArticles>
   );
-};
+});
 const StyledArticle = styled(motion.div)``;
 const StyledArticles = styled(motion.div)`
   min-height: 90vh;

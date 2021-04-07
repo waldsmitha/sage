@@ -1,20 +1,17 @@
 import React, { useState } from "react";
-import Brand from "./Brand";
-import Nav from "./Nav";
 
 //styling
 import styled from "styled-components";
 import { motion } from "framer-motion";
 //animations
-import { revealDown } from "../animations";
 
 const NavMobile = () => {
-  const [navActive, setNavActive] = useState("false");
+  // const [navActive, setNavActive] = useState("false");
 
-  const navToggle = () => {
-    setNavActive(!navActive);
-    console.log(navActive);
-  };
+  // const navToggle = () => {
+  //   setNavActive(!navActive);
+  //   console.log(navActive);
+  // };
 
   return (
     // <StyledHeader variants={revealDown} initial="hidden" animate="show">
@@ -43,11 +40,11 @@ const StyledNavMobile = styled(motion.div)`
   color: white;
 `;
 const StyledNavText = styled(motion.div)`
-  background: #1f1f1f;
-  color: black;
-
   ul {
-    padding-top: 10vh;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
     padding-left: 100px;
     list-style: none;
   }

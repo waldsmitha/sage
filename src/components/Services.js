@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 //components
 import ServiceBox from "./ServiceBox";
@@ -10,13 +10,11 @@ import ill from "../img/ill.jpg";
 //styling
 import styled from "styled-components";
 import { motion } from "framer-motion";
-//data
-import data from "../data.json";
 //animations
 import { useScroll } from "./useScroll";
-import { reveal, revealServices, revealService } from "../animations";
+import { opacity, revealServices, revealService } from "../animations";
 
-const Services = () => {
+const Services = forwardRef(({}, ref) => {
   const [element, controls] = useScroll();
   const services = [
     { img: tea2, text: "Therapeutic Modalities & Services" },
@@ -26,12 +24,12 @@ const Services = () => {
 
   return (
     <StyledContainer
-      variants={reveal}
+      variants={opacity}
       animate={controls}
       ref={element}
       initial="hidden"
     >
-      <h1>How we help you</h1>
+      <h1 ref={ref}>How we help you</h1>
       <StyledServices
         variants={revealServices}
         animate={controls}
@@ -46,7 +44,7 @@ const Services = () => {
       </StyledServices>
     </StyledContainer>
   );
-};
+});
 
 const StyledContainer = styled(motion.div)`
   min-height: 100vh;

@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
-let h1 = `calc(4rem + .5vw)`;
-let h2 = `calc(2.5rem + .5vw)`;
-let h3 = `calc(2rem + .5vw)`;
+let h1 = `calc(3.5rem + .5vw)`;
+let h2 = `calc(2rem + .5vw)`;
+let h3 = `calc(1.5rem + .5vw)`;
 let p = `calc(1rem + 1vw)`;
 
 const GlobalStyles = createGlobalStyle`

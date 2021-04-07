@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 //styling
 import styled from "styled-components";
 import { motion } from "framer-motion";
-//animations
-import { activeNav } from "../animations";
 
-const Nav = () => {
-  const [active, setActive] = useState([true, false, false, false, false]);
+const Nav = ({ active, setActive }) => {
+  // const [active, setActive] = useState([true, false, false, false, false]);
 
   const items = ["home", "services", "articles", "Dr. Green", "Contact"];
 
@@ -60,15 +58,6 @@ const StyledUl = styled(motion.ul)`
     margin: 0 2rem;
     text-transform: uppercase;
     cursor: pointer;
-  }
-
-  @media screen and (max-width: 1150px) {
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    background: gray;
   }
 `;
 

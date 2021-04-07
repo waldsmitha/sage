@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 //imgs
 import destiny from "../img/destiny.png";
@@ -10,10 +10,10 @@ import { motion } from "framer-motion";
 import { useScroll } from "./useScroll";
 import { revealAboutContent, revealAboutHeader } from "../animations";
 
-const About = () => {
+const About = forwardRef(({}, ref) => {
   const [element, controls] = useScroll();
   return (
-    <StyledAbout>
+    <StyledAbout ref={ref}>
       <StyledImages>
         <img src={destiny} alt="" />
       </StyledImages>
@@ -60,7 +60,7 @@ const About = () => {
       </StyledBio>
     </StyledAbout>
   );
-};
+});
 
 const StyledAbout = styled(motion.div)`
   display: flex;

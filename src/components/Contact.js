@@ -1,12 +1,12 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 //styling
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const Contact = () => {
+const Contact = forwardRef(({}, ref) => {
   return (
-    <StyledContact>
+    <StyledContact ref={ref}>
       <StyledInfo>
         <h1>
           Let's get started <span>today</span>
@@ -31,7 +31,7 @@ const Contact = () => {
       </form>
     </StyledContact>
   );
-};
+});
 
 const StyledContact = styled(motion.div)`
   display: flex;

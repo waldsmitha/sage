@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 //components
 import sage from "../img/sage.jpg";
@@ -6,14 +6,14 @@ import sage from "../img/sage.jpg";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 //animations
-import { scaleDown, reveal } from "../animations";
+import { scaleDown, opacity } from "../animations";
 
-const LandingPage = () => {
+const LandingPage = forwardRef(({}, ref) => {
   return (
-    <StyledLanding>
+    <StyledLanding ref={ref}>
       <StyledContainer variants={scaleDown} initial="hidden" animate="show">
         <img src={sage} alt="" />
-        <StyledCta variants={reveal}>
+        <StyledCta variants={opacity}>
           <h1>Call to Action</h1>
           <span></span>
           <h2>This is some text about the CTA</h2>
@@ -21,7 +21,7 @@ const LandingPage = () => {
       </StyledContainer>
     </StyledLanding>
   );
-};
+});
 
 const StyledLanding = styled(motion.div)`
   min-height: 100vh;

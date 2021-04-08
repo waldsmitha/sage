@@ -8,7 +8,7 @@ const Brand = () => {
   return (
     <StyledBrand>
       <svg height="100" width="100">
-        <circle cx="50" cy="50" r="40" fill="#638963" />
+        <circle cx="40" cy="50" r="40" fill="#638963" />
       </svg>
       <StyledName>
         <h1>Sage Garden</h1>
@@ -27,6 +27,7 @@ const StyledName = styled(motion.div)`
   h1,
   h2 {
     font-weight: 400;
+    line-height: 90%;
   }
 `;
 export default Brand;

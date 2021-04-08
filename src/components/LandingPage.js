@@ -6,7 +6,7 @@ import sage from "../img/sage.jpg";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 //animations
-import { scaleDown, opacity } from "../animations";
+import { scaleDown, opacity, revealDown } from "../animations";
 
 const LandingPage = forwardRef(({}, ref) => {
   return (
@@ -16,7 +16,9 @@ const LandingPage = forwardRef(({}, ref) => {
         <StyledCta variants={opacity}>
           <h1>Call to Action</h1>
           <span></span>
-          <h2>This is some text about the CTA</h2>
+          <motion.h2 variants={revealDown}>
+            This is some text about the CTA
+          </motion.h2>
         </StyledCta>
       </StyledContainer>
     </StyledLanding>
@@ -56,8 +58,6 @@ const StyledCta = styled(motion.div)`
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  min-height: 60vh;
-  max-width: 50vw;
   display: flex;
   flex-direction: column;
   justify-content: center;

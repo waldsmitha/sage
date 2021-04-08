@@ -62,6 +62,7 @@ const StyledHeader = styled(motion.div)`
   #burger {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
     span {
       padding: 0.2rem 3rem;
       background: #638963;

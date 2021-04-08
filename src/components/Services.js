@@ -1,8 +1,6 @@
 import React, { forwardRef } from "react";
-
 //components
 import ServiceBox from "./ServiceBox";
-
 //imgs
 import tea2 from "../img/tea2.jpg";
 import evaluations from "../img/evaluations.jpg";
@@ -20,14 +18,16 @@ const Services = forwardRef(({}, ref) => {
     { img: tea2, text: "Therapeutic Modalities & Services" },
     { img: evaluations, text: "Evaluations" },
     { img: ill, text: "Common Conditions Treated" },
+    { img: ill, text: "Lyme Disease" },
+    { img: ill, text: "PANS/PANDAS" },
   ];
 
   return (
     <StyledContainer
-      variants={opacity}
-      animate={controls}
-      ref={element}
-      initial="hidden"
+    // variants={opacity}
+    // animate={controls}
+    // ref={element}
+    // initial="hidden"
     >
       <h1 ref={ref}>How we help you</h1>
       <StyledServices
@@ -48,8 +48,7 @@ const Services = forwardRef(({}, ref) => {
 
 const StyledContainer = styled(motion.div)`
   min-height: 100vh;
-  /* background: blue; */
-  background: white;
+  background: blue;
 
   h1 {
     padding: 10rem 0 0 5rem;
@@ -58,13 +57,6 @@ const StyledContainer = styled(motion.div)`
   img {
     width: 100%;
     object-fit: cover;
-  }
-
-  @media screen and (max-width: 900px) {
-    h1 {
-      text-align: center;
-      padding: 10rem 0 5rem 0;
-    }
   }
 `;
 

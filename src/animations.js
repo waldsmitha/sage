@@ -4,13 +4,15 @@ export const revealDown = {
     opacity: 1,
     transition: {
       duration: 1,
+      delay: 0.5,
     },
   },
   hidden: {
     opacity: 0,
-    y: "-10%",
+    y: "100%",
   },
 };
+
 export const opacity = {
   show: {
     opacity: 1,
@@ -58,7 +60,8 @@ export const revealRight = {
 
 export const revealNavMobile = {
   show: {
-    x: "40vw",
+    x: "80vw",
+    opacity: 0.5,
     transition: {
       duration: 1,
     },
@@ -123,7 +126,7 @@ export const ToggleOpacityRight = {
 //Services
 export const revealServices = {
   show: {
-    y: 0,
+    x: 0,
     opacity: 1,
     transition: {
       duration: 1,
@@ -133,15 +136,14 @@ export const revealServices = {
   },
   hidden: {
     opacity: 0.5,
-    y: "-10%",
+    x: "0%",
   },
 };
 
 export const revealService = {
-  hidden: { x: "10%", opacity: 0.5, scale: 0.8 },
+  hidden: { opacity: 0.5, scale: 0.8 },
   show: {
     scale: 1,
-    x: 0,
     opacity: 1,
     transition: {
       duration: 0.5,

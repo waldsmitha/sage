@@ -1,0 +1,22 @@
+import { useInView } from "react-intersection-observer";
+import { useAnimation } from "framer-motion";
+
+export const useScroll = () => {
+  const controls = useAnimation();
+  const [element, view] = useInView({ triggerOnce: true, threshold: 0.3 });
+  if (view) {
+    controls.start("show");
+  } else {
+    controls.start("hidden");
+  }
+  return [element, controls];
+};
+
+export const scrollTo = (elem) => {
+  elem.current.scrollIntoView({ behavior: "smooth" });
+};
+
+export const navToggle = () => {
+  setNavActive(!navActive);
+  console.log(navActive);
+};

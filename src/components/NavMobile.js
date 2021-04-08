@@ -5,56 +5,81 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 //animations
 
-const NavMobile = () => {
-  // const [navActive, setNavActive] = useState("false");
+const NavMobile = ({ active, setActive, navActive, setNavActive }) => {
+  const items = ["home", "services", "articles", "Dr. Green", "Contact"];
 
-  // const navToggle = () => {
-  //   setNavActive(!navActive);
-  //   console.log(navActive);
-  // };
+  const navToggle = () => {
+    setNavActive(!navActive);
+    console.log(navActive);
+  };
 
+  let listItems = items.map((item, i) =>
+    active[i] ? (
+      <li
+        key={item}
+        className="active"
+        style={{ color: " #638963" }}
+        onClick={() => {
+          let activeItems = [...active];
+          let trueItem = activeItems.indexOf(true);
+          activeItems[trueItem] = false;
+          activeItems[i] = !activeItems[i];
+          setActive(activeItems);
+          console.log(activeItems[i]);
+        }}
+      >
+        {item}
+      </li>
+    ) : (
+      <li
+        key={item}
+        onClick={() => {
+          let activeItems = [...active];
+          let trueItem = activeItems.indexOf(true);
+          activeItems[trueItem] = false;
+          activeItems[i] = !activeItems[i];
+          setActive(activeItems);
+          console.log(activeItems[i]);
+          navToggle();
+        }}
+      >
+        {item}
+      </li>
+    )
+  );
   return (
-    // <StyledHeader variants={revealDown} initial="hidden" animate="show">
-    <StyledNavMobile>
-      <StyledNavText>
-        <ul>
-          <li>Home</li>
-          <li>Services</li>
-          <li>Articles</li>
-          <li>Dr.Green</li>
-          <li>Contact</li>
-        </ul>
-      </StyledNavText>
-    </StyledNavMobile>
+    <StyledNavText>
+      <ul>{listItems}</ul>
+    </StyledNavText>
   );
 };
 
-const StyledNavMobile = styled(motion.div)`
+const StyledNavText = styled(motion.div)`
   position: fixed;
   top: 0;
   height: 100vh;
-  width: 100vw;
+  width: 80vw;
   overflow: hidden;
   z-index: 0;
   background: #1f1f1f;
-  color: white;
-`;
-const StyledNavText = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+
   ul {
     display: flex;
     height: 100vh;
     flex-direction: column;
     justify-content: center;
-    padding-left: 100px;
     list-style: none;
   }
 
   li {
     color: white;
-    font-size: 5rem;
+    font-size: 4rem;
     padding: 2rem;
     cursor: pointer;
     width: fit-content;
+    text-transform: uppercase;
   }
 `;
 

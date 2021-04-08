@@ -12,7 +12,7 @@ const Nav = ({ active, setActive }) => {
   let listItems = items.map((item, i) =>
     active[i] ? (
       <li
-        key={i}
+        key={item}
         className="active"
         style={{ color: " #638963" }}
         onClick={() => {
@@ -28,7 +28,7 @@ const Nav = ({ active, setActive }) => {
       </li>
     ) : (
       <li
-        key={i}
+        key={item}
         onClick={() => {
           let activeItems = [...active];
           let trueItem = activeItems.indexOf(true);

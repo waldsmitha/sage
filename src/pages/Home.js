@@ -68,7 +68,12 @@ const Home = () => {
 
   return (
     <StyledContainer>
-      <NavMobile />
+      <NavMobile
+        active={active}
+        setActive={setActive}
+        navActive={navActive}
+        setNavActive={setNavActive}
+      />
       <Header
         navActive={navActive}
         setNavActive={setNavActive}
@@ -82,8 +87,6 @@ const Home = () => {
       >
         <LandingPage ref={homeRef} />
         <Services ref={serviceRef} />
-        <button onClick={() => scrollToComponent(homeRef)}>Test</button>
-        <button onClick={() => scrollToComponent(serviceRef)}>Test2</button>
         <StyledImg src={table} alt="" />
         <Articles ref={articlesRef} />
         <About ref={aboutRef} />

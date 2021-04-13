@@ -29,15 +29,17 @@ const Services = forwardRef(({}, ref) => {
     // ref={element}
     // initial="hidden"
     >
-      <h1 ref={ref}>How we help you</h1>
+      <h1 className="title" ref={ref}>
+        How we help you
+      </h1>
       <StyledServices
-        variants={revealServices}
-        animate={controls}
-        ref={element}
-        initial="hidden"
+      // variants={revealServices}
+      // animate={controls}
+      // ref={element}
+      // initial="hidden"
       >
         {services.map((item) => (
-          <motion.div variants={revealService}>
+          <motion.div /*variants={revealService}*/>
             <ServiceBox key={item.text} img={item.img} text={item.text} />
           </motion.div>
         ))}
@@ -47,28 +49,20 @@ const Services = forwardRef(({}, ref) => {
 });
 
 const StyledContainer = styled(motion.div)`
-  min-height: 100vh;
-  background: blue;
-
-  h1 {
-    padding: 10rem 0 0 5rem;
-  }
-
-  img {
-    width: 100%;
-    object-fit: cover;
+  min-height: 80vh;
+  padding: 2.5vw 0;
+  .title {
+    padding: 5rem 0 5rem 5rem;
   }
 `;
 
 const StyledServices = styled(motion.div)`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  min-height: 90vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  align-content: center;
   width: 100%;
+  max-width: 2200px;
+  margin: 0 auto;
 `;
-
-const StyledTest = styled(motion.div)``;
 
 export default Services;

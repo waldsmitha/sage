@@ -14,22 +14,6 @@ const Articles = forwardRef(({}, ref) => {
   return (
     <StyledArticles ref={ref}>
       <h1>Helpful Articles</h1>
-      <StyledArticleGallery
-        variants={revealArticles}
-        animate={controls}
-        ref={element}
-        initial="hidden"
-      >
-        <StyledArticle variants={revealArticle}>
-          <Article />
-        </StyledArticle>
-        <StyledArticle variants={revealArticle}>
-          <Article />
-        </StyledArticle>
-        <StyledArticle variants={revealArticle}>
-          <Article />
-        </StyledArticle>
-      </StyledArticleGallery>
     </StyledArticles>
   );
 });

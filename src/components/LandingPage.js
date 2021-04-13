@@ -14,10 +14,10 @@ const LandingPage = forwardRef(({}, ref) => {
       <StyledContainer variants={scaleDown} initial="hidden" animate="show">
         <img src={sage} alt="" />
         <StyledCta variants={opacity}>
-          <h1>Call to Action</h1>
+          <h1>Chronic illness doesn't have to be a burden</h1>
           <span></span>
           <motion.h2 variants={revealDown}>
-            This is some text about the CTA
+            We can help. Find out <span>how</span>.
           </motion.h2>
         </StyledCta>
       </StyledContainer>
@@ -75,9 +75,11 @@ const StyledCta = styled(motion.div)`
     transition: 0.5s;
     position: relative;
     width: fit-content;
-    margin: 0 auto;
+    /* background: white; */
+    width: 100vw;
+    max-width: 600px;
     padding-bottom: 2rem;
-    font-size: 10rem;
+    font-size: calc(4rem + 0.5vw);
     font-weight: bold;
     font-style: italic;
 

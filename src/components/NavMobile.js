@@ -58,12 +58,12 @@ const StyledNavText = styled(motion.div)`
   position: fixed;
   top: 0;
   height: 100vh;
-  width: 80vw;
+  width: 100vw;
   overflow: hidden;
   z-index: 0;
   background: #1f1f1f;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 
   ul {
     display: flex;
@@ -71,6 +71,7 @@ const StyledNavText = styled(motion.div)`
     flex-direction: column;
     justify-content: center;
     list-style: none;
+    padding-left: 4rem;
   }
 
   li {

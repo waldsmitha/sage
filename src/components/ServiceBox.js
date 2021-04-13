@@ -7,50 +7,63 @@ import { motion } from "framer-motion";
 const ServiceBox = ({ img, text }) => {
   return (
     <StyledBox>
-      <img src={img} alt="" />
-      <h1>{text}</h1>
-      <div className="shade"></div>
+      <div className="img">
+        <img src={img} alt="" />
+        <div className="shade"></div>
+      </div>
+      <div className="text">
+        <h1>{text}</h1>
+      </div>
     </StyledBox>
   );
 };
 
 const StyledBox = styled(motion.div)`
   position: relative;
-  flex: 1 1 0;
-  margin: 5rem 5rem;
-  height: 60vh;
-  width: 25vw;
-  min-width: 400px;
-  max-width: 500px;
+  display: flex;
+  align-items: flex-end;
+  margin: 2rem 3rem;
+  height: 40vh;
   cursor: pointer;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.2);
 
-  h1 {
-    position: absolute;
-    bottom: 0%;
-    left: 50%;
-    transform: translateX(-50%);
+  .text {
+    text-align: center;
     z-index: 3;
-    color: white;
-    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+
+    h1 {
+      color: black;
+    }
   }
 
-  img {
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .shade {
+  .img {
+    position: absolute;
     height: 100%;
     width: 100%;
-    z-index: 0;
-    background: black;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 40%;
+    z-index: -1;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .shade {
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      background: black;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 40%;
+    }
   }
 `;
 

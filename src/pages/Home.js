@@ -109,6 +109,9 @@ const StyledContainer = styled(motion.div)`
 
 const StyledHome = styled(motion.div)`
   background: white;
+  height: 100vh;
+  /* overflow-x: hidden; */
+  overflow-y: scroll;
 `;
 
 export default Home;

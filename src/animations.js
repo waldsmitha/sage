@@ -60,13 +60,15 @@ export const revealRight = {
 
 export const revealNavMobile = {
   show: {
-    x: "80vw",
+    y: "200px",
+    x: "500px",
     opacity: 0.5,
     transition: {
       duration: 1,
     },
   },
   hidden: {
+    y: "0px",
     x: "0vw",
     transition: {
       duration: 1,

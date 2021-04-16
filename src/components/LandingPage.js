@@ -1,18 +1,47 @@
-import React, { forwardRef } from "react";
+import React, {
+  forwardRef,
+  useEffect,
+  useState,
+  useLayoutEffect,
+  useRef,
+} from "react";
 
 //components
 import sage from "../img/sage.jpg";
 //styling
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 //animations
 import { scaleDown, opacity, revealDown } from "../animations";
 
 const LandingPage = forwardRef(({}, ref) => {
+  const { scrollY } = useViewportScroll();
+  const imgRef = useRef();
+  const [offsetTop, setOffsetTop] = useState(0);
+  const [height, setHeight] = useState(0);
+
+  useLayoutEffect(() => {
+    if (!imgRef.current) return null;
+    setOffsetTop(imgRef.current.offsetTop);
+    setHeight(imgRef.current.clientHeight);
+  }, [imgRef]);
+
+  const scale = useTransform(
+    scrollY,
+    [offsetTop, offsetTop + height],
+    [1, 1.5]
+  );
+
+  useEffect(() => {
+    return scrollY.onChange((v) => console.log(v));
+  }, [scrollY]);
+
+  console.log(height);
+
   return (
     <StyledLanding ref={ref}>
       <StyledContainer variants={scaleDown} initial="hidden" animate="show">
-        <img src={sage} alt="" />
+        <motion.img ref={imgRef} style={{ scale: scale }} src={sage} alt="" />
         <StyledCta variants={opacity}>
           <h1>Chronic illness doesn't have to be a burden</h1>
           <span></span>
@@ -48,7 +77,6 @@ const StyledContainer = styled(motion.div)`
     object-fit: cover;
     object-position: center;
     border-radius: 1rem;
-    transform: scale(1);
   }
 `;
 
@@ -74,8 +102,6 @@ const StyledCta = styled(motion.div)`
   h1 {
     transition: 0.5s;
     position: relative;
-    width: fit-content;
-    /* background: white; */
     width: 100vw;
     max-width: 600px;
     padding-bottom: 2rem;

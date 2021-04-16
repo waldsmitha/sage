@@ -14,7 +14,7 @@ const Contact = forwardRef(({}, ref) => {
         <ul>
           <li>Sage Garden Natural Medicine</li>
           <li>603-660-7428</li>
-          <li>info@sagegardennaturalmedicine.com</li>
+          {/* <li>info@sagegardennaturalmedicine.com</li> */}
           <li>10 Chestnut Dr Suite UP</li>
           <li>Bedford, NH 03110</li>
         </ul>
@@ -35,21 +35,18 @@ const Contact = forwardRef(({}, ref) => {
 
 const StyledContact = styled(motion.div)`
   display: flex;
-  min-height: 90vh;
-  padding: 5rem;
-  padding-top: 10rem;
-  width: 100vw;
+  flex-wrap: wrap;
   background: white;
+  justify-content: space-around;
+  padding-top: 10vh;
+  min-height: 100vh;
 
   form {
-    flex: 1;
+    flex: 1 1 40rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    padding: 5rem;
-
-    h1 {
-      padding-bottom: 3rem;
-    }
+    max-width: 60rem;
 
     label {
       font-size: 3rem;
@@ -57,51 +54,50 @@ const StyledContact = styled(motion.div)`
 
     button {
       border: none;
-      font-size: 2rem;
-      background: #638963;
-      color: white;
+      font-size: 3rem;
+      background: white;
+      color: #638963;
       padding: 2rem;
       border-radius: 1rem;
-      width: 25rem;
+      width: 100%;
       margin: 0 auto;
       cursor: pointer;
-    }
+      box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
 
-    input,
-    textarea {
-      background: white;
+      &:hover {
+        color: white;
+        background: #638963;
+      }
     }
 
     input {
       padding: 1rem;
       font-size: 2rem;
-      border: 1px solid black;
+      border: none;
       border-radius: 1rem;
       margin: 1rem 0;
+      box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.2);
     }
 
     textarea {
-      border: 1px solid black;
+      border: none;
+      box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.2);
       border-radius: 1rem;
       margin: 1rem 0;
-    }
-  }
-
-  @media screen and (max-width: 1100px) {
-    flex-direction: column;
-    align-items: center;
-
-    form {
-      padding: 5rem 0;
-      width: 80%;
+      font-size: 2rem;
     }
   }
 `;
 const StyledInfo = styled(motion.div)`
+  max-width: 60rem;
+  flex: 1 1 30rem;
   height: 100%;
-  flex: 1;
-  padding: 5rem;
-
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
   h1 {
     padding-bottom: 5rem;
   }
@@ -112,10 +108,6 @@ const StyledInfo = styled(motion.div)`
 
   li {
     line-height: 2;
-  }
-
-  @media screen and (max-width: 1100px) {
-    width: 90%;
   }
 `;
 

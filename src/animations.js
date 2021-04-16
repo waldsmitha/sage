@@ -61,13 +61,15 @@ export const revealRight = {
 export const revealNavMobile = {
   show: {
     y: "200px",
-    x: "500px",
+    x: "350px",
     opacity: 0.5,
+    overflowY: "hidden",
     transition: {
       duration: 1,
     },
   },
   hidden: {
+    overflowY: "scroll",
     y: "0px",
     x: "0vw",
     transition: {

@@ -19,31 +19,31 @@ const About = forwardRef(({}, ref) => {
       </StyledImages>
       <StyledBio>
         <motion.div className="header">
-          <motion.span
+          {/* <motion.span
             variants={revealAboutHeader}
             animate={controls}
             ref={element}
             initial="hidden"
-          ></motion.span>
+          ></motion.span> */}
           <h1>Dr. Destiny Green</h1>
         </motion.div>
         <img src={destiny} alt="" />
         <motion.div className="content">
-          <motion.span
+          {/* <motion.span
             variants={revealAboutContent}
             animate={controls}
             ref={element}
             initial="hidden"
-          ></motion.span>
+          ></motion.span> */}
           <p>
-            Dr. Green was born in California but relocated to the East Coast at
-            a young age. She was raised by a scientifically minded father who
-            was an engineer, and a spiritually-minded mother who was an artist.
-            Both had a large influence on her early holistic thinking. Her
-            passion for the visual arts drove her to a Bachelor of Fine Arts
-            while her love of the sciences led her to a minor in biology. Upon
-            receiving her undergraduate degree, she spent several years pursuing
-            a successful career as a fine artist.
+            <span>Dr. Green</span> was born in California but relocated to the
+            East Coast at a young age. She was raised by a scientifically minded
+            father who was an engineer, and a spiritually-minded mother who was
+            an artist. Both had a large influence on her early holistic
+            thinking. Her passion for the visual arts drove her to a Bachelor of
+            Fine Arts while her love of the sciences led her to a minor in
+            biology. Upon receiving her undergraduate degree, she spent several
+            years pursuing a successful career as a fine artist.
           </p>
           <p>
             During that time, she struggled with health issues that left her
@@ -64,55 +64,46 @@ const About = forwardRef(({}, ref) => {
 
 const StyledAbout = styled(motion.div)`
   display: flex;
+  flex-wrap: wrap;
   min-height: 80vh;
-  background: white;
+  padding: 2rem;
+  justify-content: center;
 `;
 const StyledImages = styled(motion.div)`
-  position: relative;
-  flex: 1;
-  width: 100%;
+  flex: 1 1 20rem;
+  padding: 2rem;
+  min-width: 350px;
+  height: 100%;
+  max-width: 500px;
   background-image: url(${foliage});
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
   img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-height: 80%;
-    max-width: 80%;
+    width: 100%;
+    border-radius: 50%;
+    border: 5px solid white;
     object-fit: cover;
-  }
-
-  @media screen and (max-width: 1300px) {
-    background-image: url(${destiny});
-    background-position: center;
-
-    img {
-      visibility: hidden;
-    }
-  }
-  @media screen and (max-width: 1000px) {
-    display: none;
   }
 `;
 const StyledBio = styled(motion.div)`
-  flex: 1;
-  padding: 5rem;
-
+  flex: 1 1 30rem;
+  padding: 2rem;
   .header,
   .content {
     position: relative;
     overflow: hidden;
-    span {
+    /* span {
       height: 100%;
       width: 100%;
       background: #ffffff;
       position: absolute;
-    }
+    } */
   }
 
   h1 {
-    padding-bottom: 5rem;
+    padding-bottom: 2rem;
   }
 
   p {
@@ -121,26 +112,6 @@ const StyledBio = styled(motion.div)`
   }
   img {
     display: none;
-  }
-
-  @media screen and (max-width: 1000px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5rem 10rem;
-
-    p {
-      padding: 2rem 0;
-    }
-
-    img {
-      display: block;
-      margin-bottom: 3rem;
-      width: 100%;
-      max-height: 50vh;
-      object-fit: cover;
-      object-position: top;
-    }
   }
 `;
 

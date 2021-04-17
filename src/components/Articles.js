@@ -20,7 +20,7 @@ const Articles = forwardRef(({}, ref) => {
 const StyledArticle = styled(motion.div)``;
 const StyledArticles = styled(motion.div)`
   min-height: 90vh;
-  background: white;
+  background: #a14848;
   display: flex;
   align-items: center;
 
@@ -42,10 +42,6 @@ const StyledArticleGallery = styled(motion.div)`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-
-  @media screen and (max-width: 1200px) {
-    justify-content: center;
-  }
 `;
 
 export default Articles;

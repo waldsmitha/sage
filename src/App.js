@@ -23,8 +23,7 @@ function App() {
 }
 
 const StyledApp = styled.div`
-  overflow-x: hidden;
-  /* position: relative; */
+  overflow: hidden;
 `;
 
 export default App;

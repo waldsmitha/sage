@@ -10,6 +10,7 @@ import Header from "../components/Header";
 import NavMobile from "../components/NavMobile";
 //imgs
 import table from "../img/table.jpg";
+import field from "../img/flower-field.m4v";
 //styling
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -90,6 +91,7 @@ const Home = () => {
         <StyledImg src={table} alt="" />
         <Articles ref={articlesRef} />
         <About ref={aboutRef} />
+        <video src={field} autoPlay muted loop playsinline></video>
         <Contact ref={contactRef} />
       </StyledHome>
     </StyledContainer>
@@ -109,9 +111,17 @@ const StyledContainer = styled(motion.div)`
 
 const StyledHome = styled(motion.div)`
   background: white;
-  height: 100vh;
-  /* overflow-x: hidden; */
-  overflow-y: scroll;
+  min-height: 100vh;
+  overflow: hidden;
+  scrollbar-width: none;
+
+  video {
+    height: 50vh;
+    width: 100vw;
+    object-fit: cover;
+    object-position: bottom;
+    display: block;
+  }
 `;
 
 export default Home;

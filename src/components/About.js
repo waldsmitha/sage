@@ -14,27 +14,12 @@ const About = forwardRef(({}, ref) => {
   const [element, controls] = useScroll();
   return (
     <StyledAbout ref={ref}>
-      <StyledImages>
+      <div className="headshot">
         <img src={destiny} alt="" />
-      </StyledImages>
-      <StyledBio>
-        <motion.div className="header">
-          {/* <motion.span
-            variants={revealAboutHeader}
-            animate={controls}
-            ref={element}
-            initial="hidden"
-          ></motion.span> */}
-          <h1>Dr. Destiny Green</h1>
-        </motion.div>
-        <img src={destiny} alt="" />
-        <motion.div className="content">
-          {/* <motion.span
-            variants={revealAboutContent}
-            animate={controls}
-            ref={element}
-            initial="hidden"
-          ></motion.span> */}
+      </div>
+      <div className="bio">
+        <h1>Dr. Destiny Green</h1>
+        <div className="paragraph">
           <p>
             <span>Dr. Green</span> was born in California but relocated to the
             East Coast at a young age. She was raised by a scientifically minded
@@ -45,73 +30,131 @@ const About = forwardRef(({}, ref) => {
             biology. Upon receiving her undergraduate degree, she spent several
             years pursuing a successful career as a fine artist.
           </p>
+          <div className="fans left">
+            <div className="relative-container">
+              <div className="fan one"></div>
+              <div className="fan two"></div>
+            </div>
+          </div>
+        </div>
+        <div className="black-bg paragraph">
           <p>
             During that time, she struggled with health issues that left her
             with few answers from traditional western medicine. It was through a
             naturopathic doctor that she finally found the road to recovery.{" "}
           </p>
+        </div>
+
+        <div className="paragraph">
           <p>
             Upon graduation from medical school she spent 2 years working with
             Dr. Julia Greenspan treating Lyme, tick-borne illness and chronic
             disease. Having been afflicted with tick-borne illness herself, she
             is committed to helping others with these challenging illnesses.
           </p>
-        </motion.div>
-      </StyledBio>
+          <div className="fans right">
+            <div className="relative-container">
+              <div className="fan three"></div>
+              <div className="fan four"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </StyledAbout>
   );
 });
 
 const StyledAbout = styled(motion.div)`
   display: flex;
-  flex-wrap: wrap;
   min-height: 80vh;
-  padding: 2rem;
-  justify-content: center;
-`;
-const StyledImages = styled(motion.div)`
-  flex: 1 1 20rem;
-  padding: 2rem;
-  min-width: 350px;
-  height: 100%;
-  max-width: 500px;
-  background-image: url(${foliage});
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  border-radius: 50%;
-  img {
-    width: 100%;
-    border-radius: 50%;
-    border: 5px solid white;
-    object-fit: cover;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* background: blue; */
+
+  .headshot {
+    img {
+      width: 375px;
+      height: 375px;
+      /* width: 100%; */
+      /* max-height: 40rem; */
+      border-radius: 50%;
+      border: 5px solid white;
+      object-fit: cover;
+      object-position: top;
+      margin: 5rem;
+    }
   }
-`;
-const StyledBio = styled(motion.div)`
-  flex: 1 1 30rem;
-  padding: 2rem;
-  .header,
-  .content {
-    position: relative;
-    overflow: hidden;
-    /* span {
-      height: 100%;
-      width: 100%;
-      background: #ffffff;
+
+  .bio {
+    h1,
+    p {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .paragraph {
+      padding: 10rem 0;
+      position: relative;
+    }
+
+    .black-bg {
+      background: #575757;
+      color: #dabcff;
+      padding: 10rem 0;
+    }
+
+    h1 {
+      color: #638963;
+      font-size: calc(4rem + 1vw);
+    }
+
+    p {
+      line-height: 2;
+    }
+  }
+  .right {
+    right: 0;
+    top: 0;
+  }
+  .left {
+    left: 0;
+    bottom: 0;
+  }
+  .fans {
+    position: absolute;
+    height: 20vh;
+    background: pink;
+
+    .fan {
+      width: 20vw;
       position: absolute;
-    } */
-  }
+    }
 
-  h1 {
-    padding-bottom: 2rem;
-  }
-
-  p {
-    line-height: 1.8;
-    padding-bottom: 2rem;
-  }
-  img {
-    display: none;
+    .one {
+      background: #bbd4bb;
+      height: 100%;
+      clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    }
+    .two {
+      background: #a7bca7;
+      height: 100%;
+      clip-path: polygon(0 50%, 0% 100%, 100% 100%);
+      width: 30vw;
+    }
+    .three {
+      background: #bbd4bb;
+      height: 100%;
+      clip-path: polygon(100% 0, 100% 100%, 0 0);
+      right: 0;
+    }
+    .four {
+      background: #a7bca7;
+      height: 100%;
+      width: 30vw;
+      right: 0;
+      clip-path: polygon(100% 0, 100% 50%, 0 0);
+    }
   }
 `;
 

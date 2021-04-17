@@ -4,7 +4,6 @@ export const revealDown = {
     opacity: 1,
     transition: {
       duration: 1,
-      delay: 0.5,
     },
   },
   hidden: {
@@ -16,25 +15,29 @@ export const revealDown = {
 export const opacity = {
   show: {
     opacity: 1,
+    // scale: 1,
     transition: {
       duration: 1,
+      when: "beforeChildren",
+      staggerChildren: 0.75,
     },
   },
   hidden: {
     opacity: 0,
+    // scale: 0.7,
   },
 };
 
 export const scaleDown = {
   show: {
-    height: "85vh",
+    height: "90vh",
     width: "95vw",
-    top: "10rem",
-    left: "2.5%",
+    y: "10rem",
     transition: {
       duration: 1,
       delay: 1,
       when: "beforeChildren",
+      staggerChildren: 0.3,
     },
   },
   hidden: {

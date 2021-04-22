@@ -19,7 +19,7 @@ const About = forwardRef(({}, ref) => {
       </div>
       <div className="bio">
         <h1>Dr. Destiny Green</h1>
-        <div className="paragraph">
+        <div className="paragraph pg-1">
           <p>
             <span>Dr. Green</span> was born in California but relocated to the
             East Coast at a young age. She was raised by a scientifically minded
@@ -68,9 +68,8 @@ const StyledAbout = styled(motion.div)`
   display: flex;
   min-height: 80vh;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
-  /* background: blue; */
+  padding-bottom: 10rem;
 
   .headshot {
     img {
@@ -82,31 +81,43 @@ const StyledAbout = styled(motion.div)`
       border: 5px solid white;
       object-fit: cover;
       object-position: top;
-      margin: 5rem;
+      margin-top: 5rem;
     }
   }
 
   .bio {
     h1,
     p {
-      width: 80%;
-      margin: 0 auto;
+      @media screen and (min-width: 768px) {
+        width: 60%;
+        margin: 0 auto;
+      }
     }
 
     .paragraph {
-      padding: 10rem 0;
+      padding: 8rem 2rem;
       position: relative;
+      @media screen and (min-width: 768px) {
+        padding: 8rem 0;
+      }
+    }
+
+    .pg-1 {
+      padding-top: 0;
     }
 
     .black-bg {
-      background: #575757;
+      background: #696969;
       color: #dabcff;
-      padding: 10rem 0;
     }
 
     h1 {
       color: #638963;
       font-size: calc(4rem + 1vw);
+      padding: 5rem 2rem;
+      @media screen and (min-width: 768px) {
+        padding: 5rem 0;
+      }
     }
 
     p {

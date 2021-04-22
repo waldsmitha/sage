@@ -91,7 +91,7 @@ const Home = () => {
         <StyledImg src={table} alt="" />
         <Articles ref={articlesRef} />
         <About ref={aboutRef} />
-        <video src={field} autoPlay muted loop playsinline></video>
+        <video src={field} autoPlay muted loop playsInline></video>
         <Contact ref={contactRef} />
       </StyledHome>
     </StyledContainer>
@@ -114,6 +114,10 @@ const StyledHome = styled(motion.div)`
   min-height: 100vh;
   overflow: hidden;
   scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   video {
     height: 50vh;

@@ -30,7 +30,7 @@ export const opacity = {
 
 export const scaleDown = {
   show: {
-    height: "90vh",
+    height: "85vh",
     width: "95vw",
     y: "10rem",
     transition: {

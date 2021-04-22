@@ -24,7 +24,7 @@ const LandingPage = forwardRef(({}, ref) => {
     if (!imgRef.current) return null;
     setOffsetTop(imgRef.current.offsetTop);
     setHeight(imgRef.current.clientHeight);
-    console.log(setOffsetTop);
+    console.log(offsetTop);
   }, [imgRef]);
 
   const scale = useTransform(

@@ -47,7 +47,7 @@ const Contact = forwardRef(({}, ref) => {
 
 const StyledContact = styled(motion.div)`
   min-height: 100vh;
-  padding-bottom: 50vh;
+  padding-bottom: 25vh;
 
   .cta {
     position: relative;
@@ -115,7 +115,8 @@ const StyledContact = styled(motion.div)`
     justify-content: center;
   }
   form {
-    flex: 1 1 40rem;
+    width: 100%;
+    flex: 1 1 30rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -131,9 +132,9 @@ const StyledContact = styled(motion.div)`
       border: none;
       border: 3px solid #575757;
       font-size: 3rem;
-      background: white;
+      background: #f2f2f2;
       color: #638963;
-      padding: 2rem;
+      padding: 2rem 0;
       border-radius: 1rem;
       width: 100%;
       margin: 0 auto;
@@ -152,14 +153,17 @@ const StyledContact = styled(motion.div)`
       border: none;
       border-bottom: 3px solid #575757;
       margin: 1rem 0;
+      background: none;
     }
 
     textarea {
+      padding: 1rem;
       border: none;
       border: 3px solid #575757;
       border-radius: 1rem;
       margin: 1rem 0;
       font-size: 2rem;
+      background: none;
     }
   }
 

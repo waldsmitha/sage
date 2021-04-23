@@ -14,7 +14,7 @@ import { motion, useViewportScroll, useTransform } from "framer-motion";
 //animations
 import { scaleDown, opacity, revealDown } from "../animations";
 
-const LandingPage = forwardRef(({}, ref) => {
+const LandingPage = forwardRef(({ active, setActive }, ref) => {
   const { scrollY } = useViewportScroll();
   const imgRef = useRef();
   const [offsetTop, setOffsetTop] = useState(0);
@@ -24,8 +24,15 @@ const LandingPage = forwardRef(({}, ref) => {
     if (!imgRef.current) return null;
     setOffsetTop(imgRef.current.offsetTop);
     setHeight(imgRef.current.clientHeight);
-    console.log(offsetTop);
   }, [imgRef]);
+
+  const scrollToServices = () => {
+    let activeItems = [...active];
+    let trueItem = activeItems.indexOf(true);
+    activeItems[trueItem] = false;
+    activeItems[1] = true;
+    setActive(activeItems);
+  };
 
   const scale = useTransform(
     scrollY,
@@ -46,7 +53,9 @@ const LandingPage = forwardRef(({}, ref) => {
           <h1>Chronic illness doesn't have to be a burden</h1>
           <span></span>
           <motion.h2 variants={revealDown}>We can help.</motion.h2>
-          <motion.button variants={revealDown}>Find out how.</motion.button>
+          <motion.button variants={revealDown} onClick={scrollToServices}>
+            Find out how.
+          </motion.button>
         </motion.div>
       </motion.div>
     </StyledLanding>
@@ -56,7 +65,14 @@ const LandingPage = forwardRef(({}, ref) => {
 const StyledLanding = styled(motion.div)`
   min-height: 100vh;
   /* padding-bottom: 2.5vw; */
-  background: white;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    115deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(222, 234, 222, 1) 100%,
+    rgba(187, 212, 187, 0.47773105824360995) 100%
+  );
   position: relative;
   /* padding-top: 10rem; */
 
@@ -132,6 +148,7 @@ const StyledLanding = styled(motion.div)`
       position: relative;
       width: 100vw;
       max-width: 600px;
+      padding: 2rem;
       padding-bottom: 2rem;
       font-size: calc(4rem + 0.5vw);
       font-weight: bold;

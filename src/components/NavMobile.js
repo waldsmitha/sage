@@ -6,7 +6,8 @@ import { motion } from "framer-motion";
 //animations
 
 const NavMobile = ({ active, setActive, navActive, setNavActive }) => {
-  const items = ["home", "services", "articles", "Dr. Green", "Contact"];
+  // const items = ["home", "services", "articles", "Dr. Green", "Contact"];
+  const items = ["home", "services", "About", "Contact"];
 
   const navToggle = () => {
     setNavActive(!navActive);
@@ -26,6 +27,7 @@ const NavMobile = ({ active, setActive, navActive, setNavActive }) => {
           activeItems[i] = !activeItems[i];
           setActive(activeItems);
           console.log(activeItems[i]);
+          navToggle();
         }}
       >
         {item}

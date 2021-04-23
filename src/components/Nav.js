@@ -7,7 +7,8 @@ import { motion } from "framer-motion";
 const Nav = ({ active, setActive }) => {
   // const [active, setActive] = useState([true, false, false, false, false]);
 
-  const items = ["home", "services", "articles", "Dr. Green", "Contact"];
+  // const items = ["home", "services", "articles", "Dr. Green", "Contact"];
+  const items = ["home", "services", "About", "Contact"];
 
   let listItems = items.map((item, i) =>
     active[i] ? (

@@ -4,16 +4,16 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+import logo from "../img/logo.svg";
+
 const Brand = () => {
   const [offsetTop, setOffsetTop] = useState(false);
 
   const scrollFunction = () => {
     if (window.pageYOffset) {
       setOffsetTop(true);
-      console.log("true");
     } else {
       setOffsetTop(false);
-      console.log("false");
     }
   };
 
@@ -23,9 +23,7 @@ const Brand = () => {
 
   return (
     <StyledBrand>
-      <svg height="100" width="100">
-        <circle cx="40" cy="50" r="40" fill="#638963" />
-      </svg>
+      <img src={logo} alt="" />
       <div className="transition">
         <div className="name">
           <h1>Sage Garden</h1>
@@ -50,6 +48,12 @@ const StyledBrand = styled(motion.div)`
       font-weight: 400;
       line-height: 90%;
     }
+  }
+
+  img {
+    height: 100px;
+    width: 100px;
+    padding: 1rem;
   }
 `;
 

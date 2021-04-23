@@ -42,7 +42,8 @@ button {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: #f2f2f2;
+    background: rgb(2,0,36);
+background: linear-gradient(115deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(222,234,222,1) 100%, rgba(187,212,187,0.47773105824360995) 100%);
     color: #575757;
 }
 

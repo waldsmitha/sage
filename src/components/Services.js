@@ -1,4 +1,5 @@
 import React, { useState, forwardRef } from "react";
+import { useHistory, useLocation, Link } from "react-router-dom";
 //components
 import ServiceBox from "./ServiceBox";
 //imgs
@@ -13,6 +14,10 @@ import { useScroll } from "./useScroll";
 import { opacity, revealServices, revealService } from "../animations";
 
 const Services = forwardRef(({}, ref) => {
+  const history = useHistory();
+  const location = useLocation();
+  console.log(history.location, location);
+
   const [element, controls] = useScroll();
   const services = [
     { img: tea2, text: "Therapeutic Modalities & Services" },
@@ -21,26 +26,18 @@ const Services = forwardRef(({}, ref) => {
   ];
 
   const [active, setActive] = useState([true, false, false, false]);
-  // console.log(Object.values(active).indexOf(true));
-
-  // let activeItems = [...active];
-  // let trueItem = activeItems.indexOf(true);
-  // activeItems[trueItem] = false;
-  // activeItems[i] = !activeItems[i];
-  // setActive(activeItems);
-  // console.log(activeItems[i]);
 
   const setSlide = (num) => {
     let activeCopy = [...active];
     let trueItem = activeCopy.indexOf(true);
     if (num === trueItem) {
-      return;
+      activeCopy[trueItem] = false;
+      setActive(activeCopy);
     }
     if (num !== trueItem) {
       activeCopy[trueItem] = false;
       activeCopy[num] = true;
       setActive(activeCopy);
-      console.log(activeCopy);
     }
   };
 
@@ -66,13 +63,13 @@ const Services = forwardRef(({}, ref) => {
               <span></span>
             </div>
             <div className="item" onClick={() => setSlide(3)}>
-              <li>Pans/Pandas</li>
+              <li>PANS/PANDAS</li>
               <span></span>
             </div>
           </ul>
         </div>
       </div>
-      <div className={active[1] ? "sl reveal" : "sl sl-1"}>
+      <div className={active[1] ? "sl reveal" : "sl"}>
         <div className="header">
           <h1>Therapeutic Modalities</h1>
           <div className="cross" onClick={closeSlide}>
@@ -89,23 +86,37 @@ const Services = forwardRef(({}, ref) => {
             stresses and environmental exposures. It is our job to assist and
             support this healing process.
           </p>
-          <p>
-            Naturopathic Doctors are primary care physicians who have completed
-            an undergraduate degree along with a 4 year Graduate Naturopathic
-            Medical program. An accredited program includes a strong foundation
-            in the sciences of anatomy, physiology, biochemistry and
-            pharmacology training. In addition to the basic medical sciences,
-            Naturopathic doctors are also trained in nutrition, diet/lifestyle
-            counseling, botanical medicine, homeopathy and other natural
-            modalities. It is our goal to support the natural healing process.
-            Treatment modalities are chosen based on the need of the individual
-            and the extent of the illness.
-          </p>
+          <Link to="/Modalities">
+            <button>Learn More</button>
+          </Link>
         </div>
       </div>
-      <div className={active[2] ? "sl reveal" : "sl sl-2"}>
+      <div className={active[2] ? "sl reveal" : "sl"}>
         <div className="header">
-          <h1>Second</h1>
+          <h1>More Information</h1>
+          <div className="cross" onClick={closeSlide}>
+            <span className="cross-one"></span>
+            <span className="cross-two"></span>
+          </div>
+        </div>
+        <div className="content">
+          <p>
+            Lyme Disease is endemic in our area. As someone who has experienced
+            Lyme Disease first hand, As a Lyme Literate Doctor with extensive
+            training in tick-borne illness, I am committed to helping those who
+            have been affected, reclaim their health. Please read and share the
+            following information to help prevent the occurrence of tick-borne
+            illness.
+          </p>
+          <Link to="Lyme">
+            <button>Learn More</button>
+          </Link>
+          <div className="content-lists"></div>
+        </div>
+      </div>
+      <div className={active[3] ? "sl reveal" : "sl"}>
+        <div className="header">
+          <h1>PANS/PANDAS</h1>
           <div className="cross" onClick={closeSlide}>
             <span className="cross-one"></span>
             <span className="cross-two"></span>
@@ -120,49 +131,10 @@ const Services = forwardRef(({}, ref) => {
             stresses and environmental exposures. It is our job to assist and
             support this healing process.
           </p>
-          <p>
-            Naturopathic Doctors are primary care physicians who have completed
-            an undergraduate degree along with a 4 year Graduate Naturopathic
-            Medical program. An accredited program includes a strong foundation
-            in the sciences of anatomy, physiology, biochemistry and
-            pharmacology training. In addition to the basic medical sciences,
-            Naturopathic doctors are also trained in nutrition, diet/lifestyle
-            counseling, botanical medicine, homeopathy and other natural
-            modalities. It is our goal to support the natural healing process.
-            Treatment modalities are chosen based on the need of the individual
-            and the extent of the illness.
-          </p>
-        </div>
-      </div>
-      <div className={active[3] ? "sl reveal" : "sl sl-3"}>
-        <div className="header">
-          <h1>Third</h1>
-          <div className="cross" onClick={closeSlide}>
-            <span className="cross-one"></span>
-            <span className="cross-two"></span>
-          </div>
-        </div>
-        <div className="content">
-          <p>
-            Naturopathy is a balance of the ancient healing arts and modern
-            medicine. It is guided by the principle of vis medicatrix naturae –
-            the healing power of nature. In essence, the body has the inherent
-            ability to heal itself, but may sometimes need support due to
-            stresses and environmental exposures. It is our job to assist and
-            support this healing process.
-          </p>
-          <p>
-            Naturopathic Doctors are primary care physicians who have completed
-            an undergraduate degree along with a 4 year Graduate Naturopathic
-            Medical program. An accredited program includes a strong foundation
-            in the sciences of anatomy, physiology, biochemistry and
-            pharmacology training. In addition to the basic medical sciences,
-            Naturopathic doctors are also trained in nutrition, diet/lifestyle
-            counseling, botanical medicine, homeopathy and other natural
-            modalities. It is our goal to support the natural healing process.
-            Treatment modalities are chosen based on the need of the individual
-            and the extent of the illness.
-          </p>
+
+          <Link to="Pans">
+            <button>Learn More</button>
+          </Link>
         </div>
       </div>
     </StyledContainer>
@@ -176,16 +148,17 @@ const StyledContainer = styled(motion.div)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* overflow: hidden; */
   .list {
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 80vh;
     max-width: 80rem;
+    padding: 0 2rem;
     h1 {
       padding-bottom: 5rem;
       color: #a7bca7;
+      font-size: calc(4rem + 1vw);
     }
     ul {
       list-style: none;
@@ -194,7 +167,7 @@ const StyledContainer = styled(motion.div)`
       cursor: pointer;
       padding: 2rem 5rem 2rem 0;
       width: 100%;
-      font-size: calc(2rem + 0.5vw);
+      font-size: calc(2rem + 1vw);
     }
     .item {
       display: flex;
@@ -213,12 +186,16 @@ const StyledContainer = styled(motion.div)`
     position: absolute;
     top: 20%;
     left: -100%;
+    bottom: 0;
     width: 100vw;
+    border-radius: 1rem;
+    border-right: 5px solid #cfc1e0;
     max-width: 80rem;
-    /* height: 75vh; */
-    transition: 0.5s;
+    transition: 0.75s;
+    transition-timing-function: ease-in-out;
     background: #dfeedf;
     z-index: 20;
+    opacity: 0;
   }
   .header {
     display: flex;
@@ -233,7 +210,7 @@ const StyledContainer = styled(motion.div)`
       top: 50%;
       right: 0%;
       padding: 0.2rem 3rem;
-      background: #575757;
+      background: #cfc1e0;
       border-radius: 1rem;
     }
     .cross-one {
@@ -251,20 +228,20 @@ const StyledContainer = styled(motion.div)`
     p::first-letter {
       font-size: 28px;
     }
+    button {
+      border: none;
+      color: #638963;
+      background: #f2f2f2;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      cursor: pointer;
+    }
   }
 
   .reveal {
     transform: translateX(100vw);
+    opacity: 1;
   }
 `;
-
-// const StyledServices = styled(motion.div)`
-//   display: grid;
-//   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-//   align-content: center;
-//   width: 100%;
-//   max-width: 2200px;
-//   margin: 0 auto;
-// `;
 
 export default Services;

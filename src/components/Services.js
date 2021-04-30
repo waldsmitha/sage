@@ -1,29 +1,15 @@
-import React, { useState, forwardRef } from "react";
+import React, { forwardRef, useState, useLayoutEffect, useRef } from "react";
 import { useHistory, useLocation, Link } from "react-router-dom";
-//components
-import ServiceBox from "./ServiceBox";
 //imgs
-import tea2 from "../img/tea2.jpg";
-import evaluations from "../img/evaluations.jpg";
-import ill from "../img/ill.jpg";
+import vines from "../img/vines.svg";
 //styling
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 //animations
 import { useScroll } from "./useScroll";
-import { opacity, revealServices, revealService } from "../animations";
 
 const Services = forwardRef(({}, ref) => {
-  const history = useHistory();
-  const location = useLocation();
-  console.log(history.location, location);
-
   const [element, controls] = useScroll();
-  const services = [
-    { img: tea2, text: "Therapeutic Modalities & Services" },
-    { img: ill, text: "Lyme Disease" },
-    { img: ill, text: "PANS/PANDAS" },
-  ];
 
   const [active, setActive] = useState([true, false, false, false]);
 
@@ -48,34 +34,117 @@ const Services = forwardRef(({}, ref) => {
     setActive(activeCopy);
   };
 
+  //
+  const { scrollY } = useViewportScroll();
+  const imgRef = useRef();
+  const [offsetTop, setOffsetTop] = useState(0);
+  const [height, setHeight] = useState(0);
+  const [width, setWidth] = useState(0);
+
+  useLayoutEffect(() => {
+    if (!imgRef.current) return null;
+    setOffsetTop(ref.current.offsetTop);
+    setHeight(ref.current.clientHeight);
+    setWidth(ref.current.clientWidth);
+  }, [imgRef, ref]);
+
+  const boxOne = useTransform(
+    scrollY,
+    [offsetTop - 0.9 * height, offsetTop + height + 0.9 * height],
+    [1, width * 0.5]
+  );
+  const boxTwo = useTransform(
+    scrollY,
+    [offsetTop - 0.5 * height, offsetTop + height + 0.5 * height],
+    [1, width * 0.5]
+  );
+  const boxTwoNeg = useTransform(
+    scrollY,
+    [offsetTop - 0.5 * height, offsetTop + height + 0.5 * height],
+    [1, -width * 0.5]
+  );
+
   return (
     <StyledContainer ref={ref}>
-      <div>
-        <div className="list">
-          <h1>How we help you</h1>
-          <ul>
-            <div className="item" onClick={() => setSlide(1)}>
-              <li>Therapeutic Modalities</li>
-              <span></span>
-            </div>
-            <div className="item" onClick={() => setSlide(2)}>
-              <li>Lyme Disease</li>
-              <span></span>
-            </div>
-            <div className="item" onClick={() => setSlide(3)}>
-              <li>PANS/PANDAS</li>
-              <span></span>
-            </div>
-          </ul>
-        </div>
+      <motion.div className="box-container">
+        <motion.div
+          ref={imgRef}
+          style={{ x: boxOne, y: boxOne }}
+          className="box b1"
+        ></motion.div>
+        <motion.div
+          ref={imgRef}
+          style={{ x: boxTwoNeg, y: boxTwo }}
+          className="box b2"
+        ></motion.div>
+        <motion.div
+          ref={imgRef}
+          style={{ x: boxTwo, y: boxTwo }}
+          className="box b3"
+        ></motion.div>
+      </motion.div>
+
+      <div className="list">
+        <h1>How we help you</h1>
+        <ul>
+          <motion.div
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.3, delay: 0.1 },
+            }}
+            whileTap={{
+              scale: 1.1,
+            }}
+            className="item"
+            onClick={() => setSlide(1)}
+          >
+            <li>Therapeutic Modalities</li>
+            <span></span>
+          </motion.div>
+          <motion.div
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.3, delay: 0.1 },
+            }}
+            whileTap={{
+              scale: 1.1,
+            }}
+            className="item"
+            onClick={() => setSlide(2)}
+          >
+            <li>Lyme Disease</li>
+            <span></span>
+          </motion.div>
+          <motion.div
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.3, delay: 0.1 },
+            }}
+            whileTap={{
+              scale: 1.1,
+            }}
+            className="item"
+            onClick={() => setSlide(3)}
+          >
+            <li>PANS/PANDAS</li>
+            <span></span>
+          </motion.div>
+        </ul>
       </div>
+
       <div className={active[1] ? "sl reveal" : "sl"}>
         <div className="header">
           <h1>Therapeutic Modalities</h1>
-          <div className="cross" onClick={closeSlide}>
+          <motion.div
+            whileTap={{
+              scale: 1.2,
+            }}
+            className="cross"
+            onClick={closeSlide}
+          >
             <span className="cross-one"></span>
             <span className="cross-two"></span>
-          </div>
+          </motion.div>
         </div>
         <div className="content">
           <p>
@@ -93,11 +162,17 @@ const Services = forwardRef(({}, ref) => {
       </div>
       <div className={active[2] ? "sl reveal" : "sl"}>
         <div className="header">
-          <h1>More Information</h1>
-          <div className="cross" onClick={closeSlide}>
+          <h1>Lyme Disease</h1>
+          <motion.div
+            whileTap={{
+              scale: 1.2,
+            }}
+            className="cross"
+            onClick={closeSlide}
+          >
             <span className="cross-one"></span>
             <span className="cross-two"></span>
-          </div>
+          </motion.div>
         </div>
         <div className="content">
           <p>
@@ -117,10 +192,16 @@ const Services = forwardRef(({}, ref) => {
       <div className={active[3] ? "sl reveal" : "sl"}>
         <div className="header">
           <h1>PANS/PANDAS</h1>
-          <div className="cross" onClick={closeSlide}>
+          <motion.div
+            whileTap={{
+              scale: 1.2,
+            }}
+            className="cross"
+            onClick={closeSlide}
+          >
             <span className="cross-one"></span>
             <span className="cross-two"></span>
-          </div>
+          </motion.div>
         </div>
         <div className="content">
           <p>
@@ -131,7 +212,6 @@ const Services = forwardRef(({}, ref) => {
             stresses and environmental exposures. It is our job to assist and
             support this healing process.
           </p>
-
           <Link to="Pans">
             <button>Learn More</button>
           </Link>
@@ -146,8 +226,9 @@ const StyledContainer = styled(motion.div)`
   min-height: 120vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
   .list {
     display: flex;
     flex-direction: column;
@@ -155,6 +236,8 @@ const StyledContainer = styled(motion.div)`
     min-height: 80vh;
     max-width: 80rem;
     padding: 0 2rem;
+    z-index: 10;
+
     h1 {
       padding-bottom: 5rem;
       color: #a7bca7;
@@ -173,7 +256,11 @@ const StyledContainer = styled(motion.div)`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      /* background: pink; */
+      background: rgba(167, 188, 167, 0.3);
+      color: #696969;
+      border-radius: 1rem;
+      margin: 2rem 0;
+      padding: 0.5rem 1rem;
       cursor: pointer;
     }
     span {
@@ -184,32 +271,44 @@ const StyledContainer = styled(motion.div)`
   }
   .sl {
     position: absolute;
-    top: 20%;
-    left: -100%;
-    bottom: 0;
-    width: 100vw;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
     border-radius: 1rem;
     border-right: 5px solid #cfc1e0;
-    max-width: 80rem;
     transition: 0.75s;
     transition-timing-function: ease-in-out;
     background: #dfeedf;
     z-index: 20;
-    opacity: 0;
+    clip-path: circle(0% at 0% 0%);
+    transform-origin: top;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header,
+  .content {
+    max-width: 100rem;
   }
   .header {
     display: flex;
     padding: 3rem 2rem;
+    justify-content: space-between;
+    width: 100%;
   }
   .cross {
     position: relative;
-    width: 100%;
+    width: 6rem;
     height: 5rem;
+
     span {
       position: absolute;
       top: 50%;
       right: 0%;
-      padding: 0.2rem 3rem;
+      padding: 0.5rem 3rem;
       background: #cfc1e0;
       border-radius: 1rem;
     }
@@ -222,6 +321,7 @@ const StyledContainer = styled(motion.div)`
   }
   .content {
     padding: 0 1rem;
+    line-height: 2;
     p {
       padding: 0 1rem 3rem 1rem;
     }
@@ -239,8 +339,34 @@ const StyledContainer = styled(motion.div)`
   }
 
   .reveal {
-    transform: translateX(100vw);
-    opacity: 1;
+    clip-path: circle(100% at 50% 50%);
+  }
+
+  .box {
+    position: absolute;
+    height: 25vw;
+    width: 25vw;
+    max-height: 20rem;
+    max-width: 20rem;
+    border-radius: 50%;
+    left: 0;
+    opacity: 0.2;
+    filter: blur(5px);
+  }
+  .b1 {
+    background: #bbd4bb;
+    top: 0%;
+    left: 30%;
+  }
+  .b2 {
+    background: #dabcff;
+    top: 30%;
+    left: 40%;
+  }
+  .b3 {
+    background: #a7bca7;
+    top: 60%;
+    left: 40%;
   }
 `;
 

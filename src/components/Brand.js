@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //styling
 import styled from "styled-components";
@@ -7,25 +7,11 @@ import { motion } from "framer-motion";
 import logo from "../img/logo.svg";
 
 const Brand = () => {
-  const [offsetTop, setOffsetTop] = useState(false);
-
-  const scrollFunction = () => {
-    if (window.pageYOffset) {
-      setOffsetTop(true);
-    } else {
-      setOffsetTop(false);
-    }
-  };
-
-  window.onscroll = function () {
-    scrollFunction();
-  };
-
   return (
     <StyledBrand>
       <svg
-        width="100"
-        height="100"
+        width="80"
+        height="80"
         viewBox="0 -5 110 110"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -35,10 +21,10 @@ const Brand = () => {
             id="border"
             d="M101.5 51.5C101.5 64.7297 96.2568 77.4202 86.9188 86.7918C77.5807 96.1634 64.9091 101.452 51.6795 101.5C38.4499 101.547 25.7406 96.3495 16.3356 87.0452C6.93049 77.7409 1.59628 65.0884 1.50129 51.859C1.4063 38.6296 6.55828 25.9018 15.8288 16.4634C25.0993 7.02499 37.7325 1.64539 50.9615 1.5029C64.1905 1.36042 76.9367 6.46667 86.4083 15.7032C95.8799 24.9398 101.305 37.5536 101.495 50.782L101.5 51.5Z"
             fill="white"
-            fill-opacity="0.1417"
+            fillOpacity="0.1417"
             stroke="#87B583"
-            stroke-opacity="0.955645"
-            stroke-width="3"
+            strokeOpacity="0.955645"
+            strokeWidth="3"
           />
           <path
             id="right"
@@ -54,7 +40,7 @@ const Brand = () => {
             id="center"
             d="M60.7698 51.2402C60.7698 61.1358 59.6746 70.6303 57.7229 77.6544C55.7713 84.6785 53.1213 88.6629 50.3507 88.7391C47.58 88.8154 44.9132 84.9773 42.9314 78.0614C40.9497 71.1455 39.8137 61.7124 39.771 51.818C39.7283 41.9236 40.7824 32.37 42.7036 25.2393C44.6247 18.1086 47.2571 13.9789 50.0271 13.7503C52.7972 13.5216 55.4802 17.2125 57.4915 24.0185C59.5029 30.8246 60.6794 40.1941 60.7648 50.0849L60.7698 51.2402Z"
             fill="#87B583"
-            fill-opacity="0.956863"
+            fillOpacity="0.956863"
           />
         </g>
       </svg>
@@ -104,7 +90,7 @@ const StyledBrand = styled(motion.div)`
   #left,
   #right {
     animation-fill-mode: forwards;
-    animation-delay: 1s;
+    animation-delay: 1.5s;
   }
 
   @keyframes turnright {

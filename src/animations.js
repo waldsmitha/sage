@@ -28,6 +28,7 @@ export const revealDown = {
     opacity: 1,
     transition: {
       duration: 1,
+      // ease: "easeInOut",
     },
   },
   hidden: {
@@ -56,7 +57,7 @@ export const scaleDown = {
   show: {
     height: "85vh",
     width: "95vw",
-    y: "10rem",
+    y: "10vh",
     transition: {
       duration: 1,
       delay: 1,

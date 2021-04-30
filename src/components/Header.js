@@ -52,7 +52,7 @@ const StyledHeader = styled(motion.div)`
   position: fixed;
   top: 0;
   display: flex;
-  height: 10rem;
+  min-height: 10vh;
   justify-content: space-between;
   align-items: center;
   padding: 0 2.5vw;

@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 //components
 import LandingPage from "../components/LandingPage";
 import Services from "../components/Services";
-import Articles from "../components/Articles";
+// import Articles from "../components/Articles";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Header from "../components/Header";
@@ -17,7 +17,6 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 //animations
 import { revealNavMobile } from "../animations";
-import { act } from "react-dom/test-utils";
 //utilities
 
 //animations

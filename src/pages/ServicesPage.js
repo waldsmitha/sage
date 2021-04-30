@@ -1,7 +1,7 @@
 import React from "react";
-import Modalities from "./Modalities";
-import Lyme from "./Modalities";
-import Pans from "./Pans";
+// import Modalities from "./Modalities";
+// import Lyme from "./Modalities";
+// import Pans from "./Pans";
 
 const ServicesPage = () => {
   return (

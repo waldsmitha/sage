@@ -104,6 +104,11 @@ const StyledLanding = styled(motion.div)`
     align-items: center;
     text-align: center;
 
+    h2,
+    button {
+      font-size: 3rem;
+    }
+
     button {
       background: rgba(0, 0, 0, 0.4);
       border: none;

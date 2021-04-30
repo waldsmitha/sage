@@ -73,8 +73,8 @@ const StyledAbout = styled(motion.div)`
 
   .headshot {
     img {
-      width: 375px;
-      height: 375px;
+      width: 35rem;
+      height: 35rem;
       /* width: 100%; */
       /* max-height: 40rem; */
       border-radius: 50%;

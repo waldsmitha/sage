@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { pageAnimation } from "../animations";
 import styled from "styled-components";
 import { motion } from "framer-motion";

@@ -133,7 +133,7 @@ const StyledContact = styled(motion.div)`
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    max-width: 60rem;
+    max-width: 50rem;
     h1 {
       padding-bottom: 5rem;
       font-size: 6rem;
@@ -143,21 +143,19 @@ const StyledContact = styled(motion.div)`
     }
 
     button {
-      border: none;
-      /* border: 3px solid #575757; */
-      font-size: 3rem;
-      background: #f2f2f2;
-      color: #638963;
-      padding: 1rem 2.5rem;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      color: #f2f2f2;
+      background: rgba(68, 68, 68, 0.5);
+      border: 2px #f2f2f2 solid;
       border-radius: 1rem;
+      padding: 1rem 2rem;
       margin: 0 auto;
       cursor: pointer;
-      transition: 0.3s;
-      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      transition: 0.5s;
 
       &:hover {
-        color: white;
-        background: #bbd4bb;
+        background: #a7bca7;
+        color: #f2f2f2;
       }
     }
 

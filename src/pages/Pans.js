@@ -9,82 +9,83 @@ import { ScrollTop } from "../util";
 
 const Pans = () => {
   return (
-    <StyledContainer
-      exit="exit"
-      variants={pageAnimation}
-      initial="hidden"
-      animate="show"
-    >
-      <div className="content">
-        <h1 id="header">PANS/PANDAS</h1>
+    <StyledContainer>
+      <motion.div
+        exit="exit"
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show"
+        className="content"
+      >
+        <h1 id="header">What are PANS and PANDAS?</h1>
         <p>
-          Lyme Disease is endemic in our area. As someone who has experienced
-          Lyme Disease first hand, As a Lyme Literate Doctor with extensive
-          training in tick-borne illness, I am committed to helping those who
-          have been affected, reclaim their health. Please read and share the
-          following information to help prevent the occurrence of tick-borne
-          illness.
+          PANS stands for Pediatric Acute-onset Neuropsychiatric Syndrome. This
+          is a very abrupt onset of neuropsychiatric symptoms following an
+          infection. The onset of PANS follows bacterial infections including
+          Lyme and Mycoplasma pneumonia and can be triggered by some viral
+          infections as well.
         </p>
-        <h1>Tick Removal</h1>
-        <ul>
-          <li>
-            Remove the tick with tweezers or a tick scoop in 1 quick motion.
-            Pull with a steady upward motion.
-          </li>
-          <li>After removal, clean with antiseptic (alcohol or iodine).</li>
-        </ul>
-        <h1>Tick Testing</h1>
-        <ul>
-          <li>
-            Testing the tick will let you know if you have been exposed to Lyme
-            or other tick-borne disease. This information allows for proper
-            treatment from the beginning.
-          </li>
-          <li>
-            After you have removed the tick, place the tick in a sealable
-            plastic baggie and send it to TickReport.com
-          </li>
-        </ul>
-        <h1>Treatment</h1>
         <p>
-          Schedule an appointment for a quick tick assessment if you are
-          concerned, develop symptoms or your tick test is positive for Lyme or
-          other infections.
+          PANDAS is short for Pediatric Autoimmune Neuropsychiatric Disorders
+          Associated with Streptococcal Infections. PANDAS symptoms typically
+          appear following bacterial infections with some types of Strep
+          bacteria.
         </p>
-        <p>We use a variety of treatments for tick-borne illness</p>
-        <ul>
-          <li>
-            Natural treatments such as nutritional, herbal and homeopathic
-            medicine
-          </li>
-          <li>Antibiotics both oral and injection</li>
-          <li>Alternative treatments such as Hydrotherapy</li>
-        </ul>
-        <h1>Could I have Lyme?</h1>
+        <h1>What does this look like?</h1>
         <p>
-          Less than half of those afflicted with Lyme disease remember being
-          bitten by a tick or develop a Bulls Eye rash. Please schedule an
-          appointment for assessment if you answer yes to any of the following
-          questions.
+          Parents often describe a well adjusted happy child who, seemingly out
+          of nowhere, becomes anxious, angry and confused with some combination
+          of the symptoms listed below.
         </p>
+        <h1>Symptoms of PANS/PANDAS include:</h1>
         <ul>
-          <li>Do you have 1 or more of the following symptoms?</li>
           <li>
-            Joint pain that wanders from place to place, brain fog, anxiety,
-            insomnia, GI distress, headaches, nerve pain, heart palpitations,
-            chronic illness, night sweats and fatigue.{" "}
+            Obsessive-compulsive disorder (OCD). Children may suddenly start
+            rituals of counting, be overly concerned with germs, cleanliness or
+            neatness. Many children become obsessed with food texture and tastes
+            which may develop into eating disorders.
           </li>
-          <li>Were you treated for Lyme Disease but still have symptoms?</li>
-          <li> Did you become ill after being bitten by a tick? </li>
           <li>
-            Were you told you don't have Lyme Disease after a negative test but
-            are still have symptoms?
+            Inability to focus, concentrate and process information which can
+            lead to a deterioration in school performance.
           </li>
+          <li>
+            Tics such as the constant need to clear their throat or facial
+            twitches
+          </li>
+          <li>
+            Mood changes including irritability, anxiety, depression and rage.
+          </li>
+          <li>Separation anxiety that is inappropriate for their age</li>
+          <li>Physical symptoms such as joint pain</li>
+          <li>Sensitivity to noise and light</li>
+          <li>Bedwetting and frequent urination</li>
+          <li>Sleep disturbances</li>
+        </ul>
+        <h1>Resources</h1>
+        <ul>
+          <li>
+            PANS/ PANDAS by Molecular Labs Video https://youtu.be/yIQEMcHoXlM
+          </li>
+          <li>
+            Child Mind Institute
+            https://childmind.org/guide/parents-guide-to-pans-and-pandas/
+          </li>
+          <li>
+            PANDAS Network – Pediatric Autoimmune Neuropsychiatric Disorders
+            www.pandasnetwork.org
+          </li>
+          <li>
+            National Institute of Mental Health: Fact Sheet about Pediatric
+            Autoimmune Neuropsychiatric Disorders Associated with Streptococcal
+            Infections https:// www.nimh.nih.gov/health/publications/pandas/
+          </li>
+          <li>Moleculera Labs https://www.moleculeralabs.com/#mg</li>
         </ul>
         <Link to="/">
           <button>Home</button>
         </Link>
-      </div>
+      </motion.div>
       <ScrollTop />
     </StyledContainer>
   );
@@ -117,18 +118,18 @@ const StyledContainer = styled(motion.div)`
       font-size: 28px;
     }
     button {
-      border: none;
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-      color: #638963;
-      background: #f2f2f2;
+      color: #f2f2f2;
+      background: rgba(68, 68, 68, 0.5);
+      border: 2px #f2f2f2 solid;
+      border-radius: 1rem;
       padding: 1rem 2rem;
       margin-top: 5rem;
-      border-radius: 1rem;
       cursor: pointer;
       transition: 0.5s;
 
       &:hover {
-        background: #638963;
+        background: #a7bca7;
         color: #f2f2f2;
       }
     }

@@ -8,13 +8,14 @@ import { Link } from "react-router-dom";
 import { ScrollTop } from "../util";
 const Modalities = () => {
   return (
-    <StyledContainer
-      exit="exit"
-      variants={pageAnimation}
-      initial="hidden"
-      animate="show"
-    >
-      <div className="content">
+    <StyledContainer>
+      <motion.div
+        exit="exit"
+        variants={pageAnimation}
+        initial="hidden"
+        animate="show"
+        className="content"
+      >
         <h1 id="header">Naturopathy & Therapeutic Modalities</h1>
         <p>
           Naturopathy is a balance of the ancient healing arts and modern
@@ -59,7 +60,7 @@ const Modalities = () => {
         <Link to="/">
           <button>Home</button>
         </Link>
-      </div>
+      </motion.div>
       <ScrollTop />
     </StyledContainer>
   );
@@ -92,18 +93,18 @@ const StyledContainer = styled(motion.div)`
       font-size: 28px;
     }
     button {
-      border: none;
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-      color: #638963;
-      background: #f2f2f2;
+      color: #f2f2f2;
+      background: rgba(68, 68, 68, 0.5);
+      border: 2px #f2f2f2 solid;
+      border-radius: 1rem;
       padding: 1rem 2rem;
       margin-top: 5rem;
-      border-radius: 1rem;
       cursor: pointer;
       transition: 0.5s;
 
       &:hover {
-        background: #638963;
+        background: #a7bca7;
         color: #f2f2f2;
       }
     }

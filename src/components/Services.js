@@ -222,12 +222,17 @@ const Services = forwardRef(({}, ref) => {
         </div>
         <div className="content">
           <p>
-            Naturopathy is a balance of the ancient healing arts and modern
-            medicine. It is guided by the principle of vis medicatrix naturae –
-            the healing power of nature. In essence, the body has the inherent
-            ability to heal itself, but may sometimes need support due to
-            stresses and environmental exposures. It is our job to assist and
-            support this healing process.
+            PANS stands for Pediatric Acute-onset Neuropsychiatric Syndrome.
+            This is a very abrupt onset of neuropsychiatric symptoms following
+            an infection. The onset of PANS follows bacterial infections
+            including Lyme and Mycoplasma pneumonia and can be triggered by some
+            viral infections as well.
+          </p>
+          <p>
+            PANDAS is short for Pediatric Autoimmune Neuropsychiatric Disorders
+            Associated with Streptococcal Infections. PANDAS symptoms typically
+            appear following bacterial infections with some types of Strep
+            bacteria.
           </p>
           <Link to="Pans">
             <button className="active-cursor">Learn More</button>

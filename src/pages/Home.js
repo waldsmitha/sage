@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 //components
 import LandingPage from "../components/LandingPage";
 import Services from "../components/Services";
+import Tick from "../components/Tick";
 // import Articles from "../components/Articles";
 import About from "../components/About";
 import Contact from "../components/Contact";
@@ -111,7 +112,7 @@ const Home = () => {
         <LandingPage ref={homeRef} active={active} setActive={setActive} />
         <Services ref={serviceRef} />
         {/* <Articles ref={articlesRef} /> */}
-        <StyledSpacer></StyledSpacer>
+        <Tick setActive={setActive} />
         <About ref={aboutRef} />
         <video src={field} autoPlay muted loop playsInline></video>
         <Contact ref={contactRef} />
@@ -120,22 +121,6 @@ const Home = () => {
     </StyledContainer>
   );
 };
-
-const StyledSpacer = styled.div`
-  background: #838383;
-  color: #f2f2f2;
-  min-height: 20vh;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 2rem;
-  h1 {
-    padding-bottom: 2rem;
-    font-size: 3rem;
-  }
-`;
 
 const StyledContainer = styled(motion.div)`
   overflow: hidden;

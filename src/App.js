@@ -5,6 +5,7 @@ import Lyme from "./pages/Lyme";
 import Modalities from "./pages/Modalities";
 import Pans from "./pages/Pans";
 import Services from "./pages/ServicesPage";
+import Cursor from "./components/Cursor";
 
 //styling
 import GlobalStyles from "./components/GlobalStyles";
@@ -22,6 +23,7 @@ function App() {
   return (
     <div>
       <GlobalStyles></GlobalStyles>
+      {/* <Cursor /> */}
       <AnimatePresence exitBeforeEnter>
         <Switch location={location} key={location.pathname}>
           <Route exact path={"/"}>

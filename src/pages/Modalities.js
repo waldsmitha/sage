@@ -75,6 +75,7 @@ const StyledContainer = styled(motion.div)`
   }
   li {
     padding: 1rem 0;
+    font-size: 2rem;
   }
   p {
     padding: 1rem 0;

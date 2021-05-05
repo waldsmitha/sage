@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 //styling
 import styled from "styled-components";
 import { motion } from "framer-motion";
-
-import logo from "../img/logo.svg";
 
 const Brand = () => {
   return (

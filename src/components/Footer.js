@@ -11,7 +11,7 @@ const Footer = () => {
 };
 
 const StyledFooter = styled.div`
-  background: #696969;
+  background: #838383;
   color: #f2f2f2;
   min-height: 20vh;
   text-align: center;

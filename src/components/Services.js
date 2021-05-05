@@ -1,15 +1,16 @@
 import React, { forwardRef, useState, useLayoutEffect, useRef } from "react";
-import { useHistory, useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 //imgs
-import vines from "../img/vines.svg";
 //styling
 import styled from "styled-components";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 //animations
 import { useScroll } from "./useScroll";
+import { revealDown, revealRight } from "../animations";
 
 const Services = forwardRef(({}, ref) => {
   const [element, controls] = useScroll();
+  const [element2, controls2] = useScroll();
 
   const [active, setActive] = useState([true, false, false, false]);
 
@@ -85,8 +86,22 @@ const Services = forwardRef(({}, ref) => {
       </motion.div>
 
       <div className="list">
-        <h1>How we help you</h1>
-        <ul>
+        <div className="main-header">
+          <motion.h1
+            ref={element}
+            initial="hidden"
+            animate={controls}
+            variants={revealDown}
+          >
+            How we help you
+          </motion.h1>
+        </div>
+        <motion.ul
+          ref={element2}
+          initial="hidden"
+          animate={controls2}
+          variants={revealRight}
+        >
           <motion.div
             whileHover={{
               scale: 1.05,
@@ -95,7 +110,7 @@ const Services = forwardRef(({}, ref) => {
             whileTap={{
               scale: 1.1,
             }}
-            className="item"
+            className="item active-cursor"
             onClick={() => setSlide(1)}
           >
             <li>Therapeutic Modalities</li>
@@ -109,7 +124,7 @@ const Services = forwardRef(({}, ref) => {
             whileTap={{
               scale: 1.1,
             }}
-            className="item"
+            className="item active-cursor"
             onClick={() => setSlide(2)}
           >
             <li>Lyme Disease</li>
@@ -123,13 +138,13 @@ const Services = forwardRef(({}, ref) => {
             whileTap={{
               scale: 1.1,
             }}
-            className="item"
+            className="item active-cursor"
             onClick={() => setSlide(3)}
           >
             <li>PANS/PANDAS</li>
             <span></span>
           </motion.div>
-        </ul>
+        </motion.ul>
       </div>
 
       <div className={active[1] ? "sl reveal" : "sl"}>
@@ -139,7 +154,7 @@ const Services = forwardRef(({}, ref) => {
             whileTap={{
               scale: 1.2,
             }}
-            className="cross"
+            className="cross active-cursor"
             onClick={closeSlide}
           >
             <span className="cross-one"></span>
@@ -156,7 +171,7 @@ const Services = forwardRef(({}, ref) => {
             support this healing process.
           </p>
           <Link to="/Modalities">
-            <button>Learn More</button>
+            <button className="active-cursor">Learn More</button>
           </Link>
         </div>
       </div>
@@ -167,7 +182,7 @@ const Services = forwardRef(({}, ref) => {
             whileTap={{
               scale: 1.2,
             }}
-            className="cross"
+            className="cross active-cursor"
             onClick={closeSlide}
           >
             <span className="cross-one"></span>
@@ -184,19 +199,21 @@ const Services = forwardRef(({}, ref) => {
             illness.
           </p>
           <Link to="Lyme">
-            <button>Learn More</button>
+            <button className="active-cursor">Learn More</button>
           </Link>
           <div className="content-lists"></div>
         </div>
       </div>
       <div className={active[3] ? "sl reveal" : "sl"}>
         <div className="header">
-          <h1>PANS/PANDAS</h1>
+          <h1>
+            PANS <br /> PANDAS
+          </h1>
           <motion.div
             whileTap={{
               scale: 1.2,
             }}
-            className="cross"
+            className="cross active-cursor"
             onClick={closeSlide}
           >
             <span className="cross-one"></span>
@@ -213,7 +230,7 @@ const Services = forwardRef(({}, ref) => {
             support this healing process.
           </p>
           <Link to="Pans">
-            <button>Learn More</button>
+            <button className="active-cursor">Learn More</button>
           </Link>
         </div>
       </div>
@@ -229,6 +246,7 @@ const StyledContainer = styled(motion.div)`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+
   .list {
     display: flex;
     flex-direction: column;
@@ -239,18 +257,21 @@ const StyledContainer = styled(motion.div)`
     z-index: 10;
 
     h1 {
-      padding-bottom: 5rem;
       color: #a7bca7;
-      font-size: calc(4rem + 1vw);
+      font-size: calc(6rem + 0.5vw);
     }
     ul {
       list-style: none;
     }
     li {
-      cursor: pointer;
+      pointer-events: none;
       padding: 2rem 5rem 2rem 0;
       width: 100%;
       font-size: calc(2rem + 1vw);
+    }
+    .main-header {
+      overflow: none;
+      margin-bottom: 5rem;
     }
     .item {
       display: flex;
@@ -298,6 +319,10 @@ const StyledContainer = styled(motion.div)`
     padding: 3rem 2rem;
     justify-content: space-between;
     width: 100%;
+
+    h1 {
+      font-size: 4rem;
+    }
   }
   .cross {
     position: relative;
@@ -311,6 +336,7 @@ const StyledContainer = styled(motion.div)`
       padding: 0.5rem 3rem;
       background: #cfc1e0;
       border-radius: 1rem;
+      pointer-events: none;
     }
     .cross-one {
       transform: rotate(45deg);
@@ -330,6 +356,7 @@ const StyledContainer = styled(motion.div)`
     }
     button {
       border: none;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
       color: #638963;
       background: #f2f2f2;
       padding: 1rem 2rem;
@@ -356,17 +383,25 @@ const StyledContainer = styled(motion.div)`
   .b1 {
     background: #bbd4bb;
     top: 0%;
-    left: 30%;
+    left: 0%;
   }
   .b2 {
     background: #dabcff;
     top: 30%;
-    left: 40%;
+    left: 60%;
+    height: 40vw;
+    width: 40vw;
+    max-height: 30rem;
+    max-width: 30rem;
   }
   .b3 {
     background: #a7bca7;
     top: 60%;
     left: 40%;
+    height: 20vw;
+    width: 20vw;
+    max-height: 20rem;
+    max-width: 20rem;
   }
 `;
 

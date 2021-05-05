@@ -4,14 +4,25 @@ import React, { forwardRef } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+import { useScroll } from "./useScroll";
+import { revealDown } from "../animations";
+
 const Contact = forwardRef(({}, ref) => {
+  const [element, controls] = useScroll();
   return (
     <StyledContact ref={ref}>
       <div className="cta">
         <div className="text">
           <h1>Take your life back</h1>
           <div className="today">
-            <h1>Today</h1>
+            <motion.h1
+              ref={element}
+              initial="hidden"
+              animate={controls}
+              variants={revealDown}
+            >
+              Today
+            </motion.h1>
           </div>
         </div>
         <div className="fans">
@@ -73,9 +84,11 @@ const StyledContact = styled(motion.div)`
     }
 
     .today {
+      /* overflow: hidden; */
       h1 {
         color: white;
-        font-size: calc(5rem + 0.5vw);
+        font-size: calc(8rem + 0.5vw);
+        font-family: "Lobster", cursive;
       }
     }
 
@@ -123,6 +136,7 @@ const StyledContact = styled(motion.div)`
     max-width: 60rem;
     h1 {
       padding-bottom: 5rem;
+      font-size: 6rem;
     }
     label {
       font-size: 3rem;
@@ -130,20 +144,20 @@ const StyledContact = styled(motion.div)`
 
     button {
       border: none;
-      border: 3px solid #575757;
+      /* border: 3px solid #575757; */
       font-size: 3rem;
       background: #f2f2f2;
       color: #638963;
-      padding: 2rem 0;
+      padding: 1rem 2.5rem;
       border-radius: 1rem;
-      width: 100%;
       margin: 0 auto;
       cursor: pointer;
       transition: 0.3s;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
       &:hover {
         color: white;
-        background: #638963;
+        background: #bbd4bb;
       }
     }
 

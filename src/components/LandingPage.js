@@ -1,10 +1,4 @@
-import React, {
-  forwardRef,
-  useEffect,
-  useState,
-  useLayoutEffect,
-  useRef,
-} from "react";
+import React, { forwardRef, useState, useLayoutEffect, useRef } from "react";
 
 //components
 import sage from "../img/sage.jpg";
@@ -106,12 +100,11 @@ const StyledLanding = styled(motion.div)`
 
     h2,
     button {
-      font-size: 3rem;
+      font-size: 3.5rem;
     }
 
     button {
       background: rgba(0, 0, 0, 0.4);
-      border: none;
       border: 2px solid white;
       border-radius: 1rem;
       font-weight: bold;
@@ -124,7 +117,8 @@ const StyledLanding = styled(motion.div)`
 
       &:hover {
         transform: scale(1.05);
-        color: #638963;
+        color: #bbd4bb;
+        border: 2px solid #bbd4bb;
       }
 
       &::after {

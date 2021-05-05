@@ -10,7 +10,6 @@ import Header from "../components/Header";
 import NavMobile from "../components/NavMobile";
 import Footer from "../components/Footer";
 //imgs
-import table from "../img/table.jpg";
 import field from "../img/flower-field.m4v";
 //styling
 import styled from "styled-components";
@@ -111,8 +110,8 @@ const Home = () => {
       >
         <LandingPage ref={homeRef} active={active} setActive={setActive} />
         <Services ref={serviceRef} />
-        <StyledImg src={table} alt="" />
         {/* <Articles ref={articlesRef} /> */}
+        <StyledSpacer></StyledSpacer>
         <About ref={aboutRef} />
         <video src={field} autoPlay muted loop playsInline></video>
         <Contact ref={contactRef} />
@@ -122,11 +121,20 @@ const Home = () => {
   );
 };
 
-const StyledImg = styled(motion.img)`
-  width: 100%;
-  object-fit: cover;
-  height: 25vh;
-  display: block;
+const StyledSpacer = styled.div`
+  background: #838383;
+  color: #f2f2f2;
+  min-height: 20vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  h1 {
+    padding-bottom: 2rem;
+    font-size: 3rem;
+  }
 `;
 
 const StyledContainer = styled(motion.div)`

@@ -2,25 +2,40 @@ import React, { forwardRef } from "react";
 
 //imgs
 import destiny from "../img/destiny.png";
-import foliage from "../img/foliage.jpg";
+
 //styling
 import styled from "styled-components";
 import { motion } from "framer-motion";
 //animations
 import { useScroll } from "./useScroll";
-import { revealAboutContent, revealAboutHeader } from "../animations";
+import { revealRight, revealLeft } from "../animations";
 
 const About = forwardRef(({}, ref) => {
   const [element, controls] = useScroll();
+  const [element2, controls2] = useScroll();
+  const [element3, controls3] = useScroll();
+  const [element4, controls4] = useScroll();
   return (
     <StyledAbout ref={ref}>
       <div className="headshot">
-        <img src={destiny} alt="" />
+        <motion.img
+          ref={element}
+          initial="hidden"
+          animate={controls}
+          variants={revealRight}
+          src={destiny}
+          alt=""
+        />
       </div>
       <div className="bio">
         <div className="paragraph pg-1">
           <h1>Dr. Destiny Green</h1>
-          <p>
+          <motion.p
+            ref={element2}
+            initial="hidden"
+            animate={controls2}
+            variants={revealLeft}
+          >
             <span>Dr. Green</span> was born in California but relocated to the
             East Coast at a young age. She was raised by a scientifically minded
             father who was an engineer, and a spiritually-minded mother who was
@@ -29,7 +44,7 @@ const About = forwardRef(({}, ref) => {
             Fine Arts while her love of the sciences led her to a minor in
             biology. Upon receiving her undergraduate degree, she spent several
             years pursuing a successful career as a fine artist.
-          </p>
+          </motion.p>
           <div className="fans left">
             <div className="relative-container">
               <div className="fan one"></div>
@@ -38,20 +53,30 @@ const About = forwardRef(({}, ref) => {
           </div>
         </div>
         <div className="black-bg paragraph">
-          <p>
+          <motion.p
+            ref={element3}
+            initial="hidden"
+            animate={controls3}
+            variants={revealRight}
+          >
             During that time, she struggled with health issues that left her
             with few answers from traditional western medicine. It was through a
             naturopathic doctor that she finally found the road to recovery.{" "}
-          </p>
+          </motion.p>
         </div>
 
         <div className="paragraph">
-          <p>
+          <motion.p
+            ref={element4}
+            initial="hidden"
+            animate={controls4}
+            variants={revealLeft}
+          >
             Upon graduation from medical school she spent 2 years working with
             Dr. Julia Greenspan treating Lyme, tick-borne illness and chronic
             disease. Having been afflicted with tick-borne illness herself, she
             is committed to helping others with these challenging illnesses.
-          </p>
+          </motion.p>
           <div className="fans right">
             <div className="relative-container">
               <div className="fan three"></div>
@@ -69,19 +94,20 @@ const StyledAbout = styled(motion.div)`
   min-height: 80vh;
   flex-direction: column;
   align-items: center;
-  padding: 10rem 0;
+  padding-top: 10rem;
 
   .headshot {
+    border-radius: 50%;
+    border: 8px solid #cfc1e0;
+    width: 35rem;
+    height: 35rem;
+    overflow: hidden;
     img {
-      width: 35rem;
-      height: 35rem;
-      /* width: 100%; */
-      /* max-height: 40rem; */
-      border-radius: 50%;
-      border: 5px solid #cfc1e0;
+      height: 100%;
+      width: 100%;
       object-fit: cover;
+      border-radius: 50%;
       object-position: top;
-      margin-top: 5rem;
     }
   }
 
@@ -89,7 +115,7 @@ const StyledAbout = styled(motion.div)`
     h1,
     p {
       @media screen and (min-width: 768px) {
-        max-width: 120rem;
+        max-width: 100rem;
         margin: 0 auto;
       }
     }
@@ -108,7 +134,7 @@ const StyledAbout = styled(motion.div)`
     }
 
     .black-bg {
-      background: #696969;
+      background: #838383;
       color: #dabcff;
     }
 

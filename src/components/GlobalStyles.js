@@ -1,10 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
-let h1 = `calc(3rem + .5vw)`;
-let h2 = `calc(2rem + .5vw)`;
-let h3 = `calc(2rem + .5vw)`;
-let p = `calc(1.8rem + .5vw)`;
-let li = `calc(1.3rem + .5vw)`;
+let h1 = `calc(3rem + .25vw)`;
+let h2 = `calc(2rem + .25vw)`;
+let h3 = `calc(2rem + .25vw)`;
+let p = `calc(1.8rem + .25vw)`;
+let li = `calc(1.3rem + .25vw)`;
 
 const GlobalStyles = createGlobalStyle`
 

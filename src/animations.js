@@ -77,12 +77,25 @@ export const revealRight = {
     opacity: 1,
     transition: {
       duration: 1,
-      delay: 0.75,
     },
   },
   hidden: {
     opacity: 0,
-    x: "-10%",
+    x: "-50%",
+  },
+};
+
+export const revealLeft = {
+  show: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    x: "50%",
   },
 };
 

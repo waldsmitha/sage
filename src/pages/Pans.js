@@ -90,14 +90,17 @@ const Pans = () => {
 const StyledContainer = styled(motion.div)`
   padding: 2rem;
   padding-bottom: 5rem;
+  max-width: 100rem;
+  margin: 0 auto;
   h1 {
-    padding: 2rem 0;
+    padding: 4rem 0;
   }
   ul {
     padding-left: 2rem;
   }
   li {
     padding: 1rem 0;
+    font-size: 2rem;
   }
   p {
     padding: 1rem 0;

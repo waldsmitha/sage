@@ -104,7 +104,7 @@ const Services = forwardRef(({}, ref) => {
         >
           <motion.div
             whileHover={{
-              scale: 1.05,
+              x: -50,
               transition: { duration: 0.3, delay: 0.1 },
             }}
             whileTap={{
@@ -118,7 +118,7 @@ const Services = forwardRef(({}, ref) => {
           </motion.div>
           <motion.div
             whileHover={{
-              scale: 1.05,
+              x: -50,
               transition: { duration: 0.3, delay: 0.1 },
             }}
             whileTap={{
@@ -132,7 +132,7 @@ const Services = forwardRef(({}, ref) => {
           </motion.div>
           <motion.div
             whileHover={{
-              scale: 1.05,
+              x: -50,
               transition: { duration: 0.3, delay: 0.1 },
             }}
             whileTap={{

@@ -139,7 +139,7 @@ const StyledAbout = styled(motion.div)`
     }
 
     h1 {
-      color: #638963;
+      color: #a7bca7;
       font-size: calc(4rem + 1vw);
       padding: 5rem 0;
     }

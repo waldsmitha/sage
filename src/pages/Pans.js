@@ -64,23 +64,27 @@ const Pans = () => {
         </ul>
         <h1>Resources</h1>
         <ul>
-          <li>
-            PANS/ PANDAS by Molecular Labs Video https://youtu.be/yIQEMcHoXlM
-          </li>
-          <li>
-            Child Mind Institute
-            https://childmind.org/guide/parents-guide-to-pans-and-pandas/
-          </li>
-          <li>
-            PANDAS Network – Pediatric Autoimmune Neuropsychiatric Disorders
-            www.pandasnetwork.org
-          </li>
-          <li>
-            National Institute of Mental Health: Fact Sheet about Pediatric
-            Autoimmune Neuropsychiatric Disorders Associated with Streptococcal
-            Infections https:// www.nimh.nih.gov/health/publications/pandas/
-          </li>
-          <li>Moleculera Labs https://www.moleculeralabs.com/#mg</li>
+          <a href="https://youtu.be/yIQEMcHoXlM">
+            <li>PANS/ PANDAS by Molecular Labs Video</li>
+          </a>
+          <a href="https://childmind.org/guide/parents-guide-to-pans-and-pandas/">
+            <li>Child Mind Institute</li>
+          </a>
+          <a href="www.pandasnetwork.org">
+            <li>
+              PANDAS Network – Pediatric Autoimmune Neuropsychiatric Disorders
+            </li>
+          </a>
+          <a href="https:// www.nimh.nih.gov/health/publications/pandas/">
+            <li>
+              National Institute of Mental Health: Fact Sheet about Pediatric
+              Autoimmune Neuropsychiatric Disorders Associated with
+              Streptococcal Infections
+            </li>
+          </a>
+          <a href="https://www.moleculeralabs.com/#mg">
+            <li>Moleculera Labs </li>
+          </a>
         </ul>
         <Link to="/">
           <button>Home</button>
@@ -95,6 +99,7 @@ const StyledContainer = styled(motion.div)`
   background: #dfeedf;
   padding: 5rem 2rem;
   padding-bottom: 10rem;
+
   #header {
     font-size: calc(4rem + 0.5vw);
   }
@@ -107,6 +112,14 @@ const StyledContainer = styled(motion.div)`
     ul {
       padding-left: 2rem;
     }
+    a {
+      color: #575757;
+      transition: 0.3s;
+      &:hover {
+        color: #8f8f8f;
+      }
+    }
+
     li {
       padding: 1rem 0;
       font-size: 2rem;

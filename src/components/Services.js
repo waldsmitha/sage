@@ -352,7 +352,7 @@ const StyledContainer = styled(motion.div)`
   }
   .content {
     padding: 0 1rem;
-    line-height: 2;
+    line-height: 1.5;
     p {
       padding: 0 1rem 3rem 1rem;
     }
